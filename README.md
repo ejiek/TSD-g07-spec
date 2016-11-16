@@ -22,8 +22,8 @@ Every crisis has casualty list, which contains information about their injuries:
 
 Hospital coordinator can see how many people (with their injuries) are going to get help in his hospital.
 
-![crisisList](https://github.com/ejiek/TSD-g07-spec/blob/master/crisisList.png)
-![InjuryList](https://github.com/ejiek/TSD-g07-spec/blob/master/InjuryList.png)
-![partsOfBody](https://github.com/ejiek/TSD-g07-spec/blob/master/partsOfBody.png)
-![typeOfInjury](https://github.com/ejiek/TSD-g07-spec/blob/master/typeOfInjury.png)
-![causeOfInjury](https://github.com/ejiek/TSD-g07-spec/blob/master/causeOfInjury.png)
+![crisisList](https://github.com/ejiek/TSD-g07-spec/blob/master/pics/crisisList.png)
+![InjuryList](https://github.com/ejiek/TSD-g07-spec/blob/master/pics/InjuryList.png)
+![partsOfBody](https://github.com/ejiek/TSD-g07-spec/blob/master/pics/partsOfBody.png)
+![typeOfInjury](https://github.com/ejiek/TSD-g07-spec/blob/master/pics/typeOfInjury.png)
+![causeOfInjury](https://github.com/ejiek/TSD-g07-spec/blob/master/pics/causeOfInjury.png)
