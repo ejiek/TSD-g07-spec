@@ -7,11 +7,11 @@ Backup is formed in iterative way: once it is created we only add new chunks of 
 # Ноspitаl Сооrdination Prоblеm
 To resolve this problem coordinator will have opportunity to determine how many people have injured in a crisis by making note in the new column in table CRISIS.
 
-![casualtyControl](https://github.com/ejiek/TSD-g07-spec/blob/master/casualtyControl.png) ![injuryControl](https://github.com/ejiek/TSD-g07-spec/blob/master/injuryControl.png)
+![casualtyControl](https://github.com/ejiek/TSD-g07-spec/blob/master/pics/casualtyControl.png) ![injuryControl](https://github.com/ejiek/TSD-g07-spec/blob/master/pics/injuryControl.png)
 
 From now system has new actor - casualty. Casualty is a person, who have injured in an accident. Every casualty have some (one, two or more) injuries with its own type. Injured people compose casualty list of crisis. Coordinator compile this list by himself.
 
-![err](https://github.com/ejiek/TSD-g07-spec/blob/master/err.png)
+![err](https://github.com/ejiek/TSD-g07-spec/blob/master/pics/err.png)
 
 This list will be associated with crisis and stored in new DB tables CASUALTY and INJURES like records about victims, their injuries and their cause. In that way we have list, which contains all crises (table CRISIS) and new panel, where hospitals can see crises with victims.
 Hospital is a person, who have access (by authentication) to his own hospital (in which he works) panel. Hospital panel contains information about crysis.
