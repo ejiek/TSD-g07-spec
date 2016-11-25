@@ -2,6 +2,7 @@ package icrash.usecases.suDeployAndRun {
 	import icrash.concepts.primarytypes.datatypes
 	import icrash.environment
 	import icrash.usecases.suGlobalCrisisHandling
+	import icrash.usecases.suHospitalCrisisInteraction
 	import icrash.usecases.ugAdministrateTheSystem
 	import icrash.usecases.subfunctions
 
@@ -10,12 +11,14 @@ package icrash.usecases.suDeployAndRun {
 			actor actAdministrator[primary,active]
 			actor actMsrCreator[secondary,active]
 			actor actCoordinator[secondary,active,multiple]
+			actor actHospital[secondary,active,multiple]
 			actor actActivator[secondary,proactive]
 			actor actComCompany[secondary,active]
 
 			reuse oeCreateSystemAndEnvironment[1..1]
 			reuse ugAdministrateTheSystem[1..*]
 			reuse suGlobalCrisisHandling[1..*]
+			reuse suHospitalCrisisInteraction[1..*]
 			reuse oeSetClock[1..*]
 			reuse oeSollicitateCrisisHandling[0..*]
 			reuse oeAlert[1..*]
@@ -26,11 +29,14 @@ package icrash.usecases.suDeployAndRun {
 			step d: actActivator executes oeSetClock
 			step ^e: actActivator executes oeSollicitateCrisisHandling
 			step f: actCoordinator executes suGlobalCrisisHandling
+			step g: actHospital executes suHospitalCrisisInteraction
 			
       ordering constraint 
         "step (a) must be always the first step."
       ordering constraint 
         "step (f) can be executed by different actCoordinator actors."
+      ordering constraint 
+        "step (g) can be executed by different actHospital actors."
       ordering constraint 
         "if (e) then previously (d)."
 		}
@@ -44,6 +50,7 @@ package icrash.usecases.suDeployAndRun {
         bill : actAdministrator
         tango : actComCompany
         steve : actCoordinator
+        wozniak : actHospital
       }
       use case steps {
 //----------------------------------------------------
@@ -65,6 +72,12 @@ package icrash.usecases.suDeployAndRun {
         executed instanceof subfunction
               oeAddCoordinator("1","steve","pwdMessirExcalibur2017"){
                 ieCoordinatorAddedreturned returned to bill
+              }
+//----------------------------------------------------
+        bill
+        executed instanceof subfunction
+              oeAddHospital("2","wozniak","pwdMessirExcalibur2017bc"){
+                ieHospitalAddedreturned returned to bill
               }
 //----------------------------------------------------
         bill
@@ -136,9 +149,47 @@ package icrash.usecases.suDeployAndRun {
                  ieSmsSend("+3524666445000","Your alert has been registered. We will handle it and keep you informed") returned to tango
               }
 //----------------------------------------------------
+        steve
+        executed instanceof subfunction
+              oeCreateVictim("1"){
+                ieMessage('The crisis status has been updated !')
+                returned to steve
+              }
+//----------------------------------------------------
+        steve
+        executed instanceof subfunction
+              oeCreateInjury("1","head"){
+                ieMessage('The crisis status has been updated !')
+                returned to steve
+              }
+//----------------------------------------------------
         theClock
         executed instanceof subfunction 
               oeSetClock("2017:11:26 - 12:45:00"){}
+//----------------------------------------------------
+        wozniak
+        executed instanceof subfunction
+              oeLogin("wozniak","pwdMessirExcalibur2017bc"){
+                ieMessage('You are logged ! Welcome ...') returned to wozniak
+              }
+//----------------------------------------------------
+        wozniak
+        executed instanceof subfunction
+              oeGetCrisisSet("pending"){
+                ieSendACrisis("crisis with ID 1 details") returned to wozniak
+              }
+//----------------------------------------------------
+        wozniak
+        executed instanceof subfunction
+              oeGetVictimSet("1"){
+                ieSendACrisis("Victim with ID 1 details") returned to wozniak
+              }
+//----------------------------------------------------
+        wozniak
+        executed instanceof subfunction
+              oeGetInjurySet("1"){
+                ieSendACrisis("Injury with ID 1 details") returned to wozniak
+              }
 //----------------------------------------------------
         steve
         executed instanceof subfunction
@@ -160,7 +211,6 @@ package icrash.usecases.suDeployAndRun {
                 ieMessage('The crisis is now closed !')
                 returned to steve
               }
-
       }
     }
 //---------------------------------------------------- 
@@ -195,6 +245,12 @@ package icrash.usecases.suDeployAndRun {
         executed instanceof subfunction
               oeAddCoordinator("1","steve","pwdMessirExcalibur2017"){
                 ieCoordinatorAddedreturned returned to bill
+              }
+//----------------------------------------------------
+        bill
+        executed instanceof subfunction
+              oeAddHospital("2","wozniak","pwdMessirExcalibur2017bc"){
+                ieHospitalAddedreturned returned to bill
               }
 //----------------------------------------------------
         bill

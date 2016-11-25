@@ -1,0 +1,13 @@
+/*
+@author subli
+@date Fri Nov 25 13:18:28 MSK 2016
+*/
+
+
+@@view cm-view8
+@model Concept
+@level Local
+@sublevel Primary Datatype
+@number 8
+@description ""
+@caption ""

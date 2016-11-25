@@ -459,6 +459,23 @@
   <semanticResources>platform:/resource/lu.uni.lassy.excalibur.standard.specification.libraries/library/documentation/PrimaryType-Primitive-ptReal.msrd</semanticResources>
   <semanticResources>platform:/resource/lu.uni.lassy.excalibur.standard.specification.libraries/library/documentation/PrimaryType-Primitive-ptString.msrd</semanticResources>
   <semanticResources>documentation/View-em-gv-02.msrd</semanticResources>
+  <semanticResources>usecases/usecase-suHospitalCrisisInteraction.msr</semanticResources>
+  <semanticResources>operations/concepts/primarytypes-classes/primarytypes-classes-ctVictim.msr</semanticResources>
+  <semanticResources>usecases/usecase-ugCrisisInteraction.msr</semanticResources>
+  <semanticResources>usecases/ugHospitalMonitor.msr</semanticResources>
+  <semanticResources>operations/environment/environment-actHospital-oeGetHospitalCrisisSet.msr</semanticResources>
+  <semanticResources>operations/concepts/primarytypes-classes/ptimarytypes-classes-ctHospital.msr</semanticResources>
+  <semanticResources>operations/concepts/primarytypes-datatypes/primarytypes-datatypes-dtHospitalID.msr</semanticResources>
+  <semanticResources>operations/concepts/primarytypes-datatypes/primarytypes-datatypes-etInjuryKind.msr</semanticResources>
+  <semanticResources>operations/concepts/primarytypes-classes/primarytypes-classes-ctInjury.msr</semanticResources>
+  <semanticResources>documentation/View-cm-view8.msrd</semanticResources>
+  <semanticResources>operations/environment/environment-actAdministrator-oeDeleteHospital.msr</semanticResources>
+  <semanticResources>operations/environment/environment-actHospital-oeGetHospitalVictimSet.msr</semanticResources>
+  <semanticResources>operations/environment/environment-actCoordinator-oeGetVictimSet.msr</semanticResources>
+  <semanticResources>operations/environment/environment-actHospital-oeGetHospitalInjurySet.msr</semanticResources>
+  <semanticResources>operations/environment/environment-actCoordinator-oeGetInjurySet.msr</semanticResources>
+  <semanticResources>operations/environment/environment-actAdministrator-oeAddHospital.msr</semanticResources>
+  <semanticResources>operations/environment/environment-actCoordinator-oeAddVictim.msr</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_VxVZ4PWqEeSOM9Kfym77Zg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/lu.uni.lassy.excalibur.ui.viewer/description/excalibur_models.odesign#//@ownedViewpoints[name='msr-viewpoint']"/>
   </ownedViews>

@@ -1,0 +1,16 @@
+package icrash.operations.environment.actHospital.oeGetHospitalVictimSet {
+
+import lu.uni.lassy.messir.libraries.primitives
+import lu.uni.lassy.messir.libraries.math
+import lu.uni.lassy.messir.libraries.string
+import lu.uni.lassy.messir.libraries.calendar
+import icrash.concepts.primarytypes.datatypes
+import icrash.environment
+
+Operation Model {
+	
+operation: actHospital.outactHospital.oeGetHospitalVictimSet(AdtCrisisID:dtCrisisID):ptBoolean{
+prolog{"src/Operations/Environment/OUT/outactHospital-oeGetHospitalVictimSet.pl"}
+}
+}
+}

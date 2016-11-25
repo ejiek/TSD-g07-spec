@@ -63,10 +63,33 @@ import lu.uni.lassy.messir.libraries.calendar
 				operation handlingDelayPassed():ptBoolean
         operation maxHandlingDelayPassed():ptBoolean
 				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
+				operation isSentToHospital(AactHospital:actHospital ):ptBoolean
 				operation isAllocatedIfPossible():ptBoolean
 			}
 			
-
+			class ctVictim role rnctVictim cardinality [0..*]{
+				attribute id:dtVictimID
+				attribute crisisID:dtCrisisID
+				
+				operation init(
+										Aid:dtVictimID ,
+										AcrisisID:dtCrisisID ):ptBoolean
+										
+				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
+				operation isSentToHospital(AactHospital:actHospital ):ptBoolean
+			}
+			
+			class ctInjury role rnctInjury cardinality [0..*]{
+				attribute id:dtInjuryID
+				attribute victimID:dtVictimID
+				
+				operation init(
+										Aid:dtInjuryID ,
+										AvictimID:dtVictimID ):ptBoolean
+										
+				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
+				operation isSentToHospital(AactHospital:actHospital ):ptBoolean
+			}
 
 			class ctHuman role rnctHuman cardinality [0..*]{
 				attribute id:dtPhoneNumber
@@ -105,6 +128,19 @@ import lu.uni.lassy.messir.libraries.calendar
 										Apwd:dtPassword ):ptBoolean
 			}
 
+			class ctHospital 
+					role rnctHospital
+					cardinality [0..*]
+					extends ctAuthenticated{
+			
+				attribute id:dtHospitalID
+				
+				operation init(
+										Aid:dtHospitalID ,
+										Alogin:dtLogin ,
+										Apwd:dtPassword ):ptBoolean
+			}
+			
 			class ctAdministrator 
 					role rnctAdministrator
 					cardinality [1..1]

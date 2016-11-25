@@ -1,0 +1,23 @@
+/*
+@author subli
+@date Thu Nov 17 16:32:35 MSK 2016
+*/
+
+
+@@Actor icrash.environment.actHospital
+@description ""
+//input events
+@inputEvent
+icrash.environment.actHospital.inactHospital.ieSendACrisis
+""
+
+@endInputEvents
+//output events
+@outputEvent
+icrash.environment.actHospital.outactHospital.oeGetCrisisSet
+""
+@outputEvent
+icrash.environment.actHospital.outactHospital.oeGetVictimSet
+""
+
+@endOutputEvents

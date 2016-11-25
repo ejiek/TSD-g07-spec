@@ -1,0 +1,62 @@
+package icrash.operations.concepts.primarytypes.classes.ctInjury {
+
+import lu.uni.lassy.messir.libraries.primitives
+import lu.uni.lassy.messir.libraries.math
+import lu.uni.lassy.messir.libraries.calendar
+
+import icrash.concepts.primarytypes.datatypes
+import icrash.concepts.primarytypes.classes
+import icrash.concepts.secondarytypes.datatypes
+import icrash.concepts.secondarytypes.classes
+import lu.uni.lassy.messir.libraries.primitives
+
+import icrash.environment
+
+Operation Model {
+//------------------------------------------------------------
+operation: icrash.concepts.primarytypes.classes.ctInjury.init(
+				Aid:dtInjuryID,
+                AvictimID:dtVictimID
+              ):ptBoolean{
+postF{
+if
+(
+/* Post F01 */
+let Self:ctInjury in
+Self.id = Aid
+and Self.victimID = AvictimID
+/* Post F02 */
+and (Self.oclIsNew and self = Self)
+)
+then (result = true)
+else (result = false)
+endif}
+prolog{"src/Operations/Concepts/PrimaryTypesClasses/PrimaryTypesClasses-ctInjury-init.pl"}}
+//------------------------------------------------------------
+operation: icrash.concepts.primarytypes.classes.ctInjury.isSentToCoordinator(AactCoordinator:actCoordinator):ptBoolean
+{
+postF{ 
+if 
+(
+/* Post F01 */
+  AactCoordinator.rnInterfaceIN.ieSendAInjury(self)
+)
+then (result = true)
+else (result = false)
+endif}
+prolog{"src/Operations/Concepts/PrimaryTypesClasses/PrimaryTypesClasses-ctCrisis-isSentToCoordinator.pl" }}
+//------------------------------------------------------------
+operation: icrash.concepts.primarytypes.classes.ctInjury.isSentToHospital(AactHospital:actHospital):ptBoolean
+{
+postF{ 
+if 
+(
+/* Post F01 */
+  AactHospital.rnInterfaceIN.ieSendAInjury(self)
+)
+then (result = true)
+else (result = false)
+endif}
+prolog{"src/Operations/Concepts/PrimaryTypesClasses/PrimaryTypesClasses-ctInjury-isSentToHospital.pl" }}
+}
+}

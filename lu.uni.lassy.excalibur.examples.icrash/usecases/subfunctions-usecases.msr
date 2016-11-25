@@ -12,7 +12,34 @@ import lu.uni.lassy.messir.libraries.calendar
 import icrash.environment
 
   Use Case Model {
-    
+//----------------------------------------------------
+  use case system subfunction oeCreateVictim(AdtCrisisID:dtCrisisID){
+    actor actCoordinator[primary,active]
+    returned messages {
+      ieVictimAdded() returned to actCoordinator
+    }
+  }
+//----------------------------------------------------
+  use case system subfunction oeDeleteVictim(AdtVictimID:dtVictimID){
+    actor actCoordinator[primary,active]
+    returned messages {
+      ieVictimDeleted() returned to actCoordinator
+    }
+  }
+//----------------------------------------------------
+  use case system subfunction oeCreateInjury(AdtVictimID:dtVictimID){
+    actor actCoordinator[primary,active]
+    returned messages {
+      ieInjuryAdded() returned to actCoordinator
+    }
+  }
+//----------------------------------------------------
+  use case system subfunction oeDeleteInjury(AdtInjuryID:dtInjuryID){
+    actor actCoordinator[primary,active]
+    returned messages {
+      ieInjuryDeleted() returned to actCoordinator
+    }
+  }
 //----------------------------------------------------
   use case system subfunction oeAddCoordinator(AdtCoordinatorID:dtCoordinatorID, AdtLogin:dtLogin, AdtPassword:dtPassword){
     actor actAdministrator[primary,active]
@@ -20,6 +47,13 @@ import icrash.environment
       ieCoordinatorAdded() returned to actAdministrator
     }
   }
+//----------------------------------------------------
+use case system subfunction oeAddHospital(AdtHospitalID:dtHospitalID, AdtLogin:dtLogin, AdtPassword:dtPassword){
+  actor actAdministrator[primary,active]
+  returned messages {
+    ieHospitalAdded() returned to actAdministrator
+  }
+}
 //----------------------------------------------------
   use case system subfunction oeAlert(
                                    AetKind:etHumanKind,
@@ -59,6 +93,13 @@ import icrash.environment
     }
   }   
 //----------------------------------------------------
+  use case system subfunction oeDeleteHospital(AdtHospitalID:dtHospitalID) {
+    actor actAdministrator[primary,active]
+    returned messages {
+      ieHospitalDeleted() returned to actAdministrator
+    }
+  }   
+//----------------------------------------------------
   use case system subfunction oeGetAlertsSet(AetAlertStatus:etAlertStatus) {
     actor actCoordinator[primary,active]
     returned messages {
@@ -66,10 +107,45 @@ import icrash.environment
     }
   }
 //----------------------------------------------------
-  use case system subfunction oeGetCrisisSet(AetCrisisStatus:etCrisisStatus){
+use case system subfunction oeGetCrisisSet(AetCrisisStatus:etCrisisStatus) {
+	actor actCoordinator[primary,active]
+	returned messages {
+      ieSendACrisis(ActCrisis) returned to actCoordinator
+    }
+}
+//----------------------------------------------------
+  use case system subfunction oeGetHospitalCrisisSet(AetCrisisStatus:etCrisisStatus){
+    actor actHospital[primary,active]
+    returned messages {
+      ieSendACrisisToHospital(ActCrisis) returned to actHospital
+    }
+  }
+//----------------------------------------------------
+  use case system subfunction oeGetHospitalVictimSet(AdtCrisisID:dtCrisisID){
+    actor actHospital[primary,active]
+    returned messages {
+      ieSendAVictimToHospital(ActVictim) returned to actHospital
+    }
+  }
+//----------------------------------------------------
+  use case system subfunction oeGetVictimSet(AdtCrisisID:dtCrisisID){
     actor actCoordinator[primary,active]
     returned messages {
-      ieSendACrisis(ActCrisis) returned to actCoordinator
+      ieSendAVictim(ActVictim) returned to actCoordinator
+    }
+  }
+//----------------------------------------------------
+  use case system subfunction oeGetHospitalInjurySet(AdtVictimID:dtVictimID){
+    actor actHospital[primary,active]
+    returned messages {
+      ieSendAInjuryToHospital(ActInjury) returned to actHospital
+    }
+  }
+//----------------------------------------------------
+  use case system subfunction oeGetInjurySet(AdtVictimID:dtVictimID){
+    actor actCoordinator[primary,active]
+    returned messages {
+      ieSendAInjury(ActInjury) returned to actCoordinator
     }
   }
 //----------------------------------------------------
@@ -125,7 +201,6 @@ import icrash.environment
     actor actAdministrator[secondary,passive]
     returned messages {
       ieMessage(AMessage) returned to actCoordinator
-      //ieMessage(AMessage) returned to actAdministrator
     }
   }            
 //----------------------------------------------------
