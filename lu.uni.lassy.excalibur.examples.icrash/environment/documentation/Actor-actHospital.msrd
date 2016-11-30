@@ -1,23 +1,24 @@
-/*
-@author subli
-@date Thu Nov 17 16:32:35 MSK 2016
-*/
-
-
 @@Actor icrash.environment.actHospital
-@description ""
+@description 
+"represents actor responsible of observing crisis with their victims and injuries for the \msricrash system."
 //input events
-@inputEvent
-icrash.environment.actHospital.inactHospital.ieSendACrisis
-""
+@inputEvent icrash.environment.actHospital.inactHospital.ieSendACrisisToHospital
+"allows for receiving a requested ctCrisis instance."
+@inputEvent icrash.environment.actHospital.inactHospital.ieSendAVictimToHospital
+"allows for receiving a requested ctVictim instance."
+@inputEvent icrash.environment.actHospital.inactHospital.ieSendAInjuryToHospital
+"allows for receiving a requested ctInjury instance."
 
 @endInputEvents
 //output events
 @outputEvent
-icrash.environment.actHospital.outactHospital.oeGetCrisisSet
-""
+icrash.environment.actHospital.outactHospital.oeGetHospitalCrisisSet
+"sent to request all the ctCrisis instances having a specific status."
 @outputEvent
-icrash.environment.actHospital.outactHospital.oeGetVictimSet
-""
+icrash.environment.actHospital.outactHospital.oeGetHospitalVictimSet
+"sent to request all the ctVictim instances for given Crisis."
+@outputEvent
+icrash.environment.actHospital.outactHospital.oeGetHospitalInjurySet
+"sent to request all the ctInjury instances for given Victim."
 
 @endOutputEvents

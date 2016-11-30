@@ -1,0 +1,22 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:14 MSK 2016
+*/
+
+
+@@Operation
+icrash.concepts.primarytypes.classes.ctVictim.isSentToCoordinator
+//parameters
+@parameter
+icrash.concepts.primarytypes.classes.ctVictim.isSentToCoordinator.AactCoordinator
+""
+@endParameters
+
+@description "
+ "
+//postFunctional descriptions
+@postF 
+" "
+@endPostF
+//example
+@example" "

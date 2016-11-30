@@ -1,0 +1,28 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:44 MSK 2016
+*/
+
+
+@@Use Case Subfunction icrash.usecases.subfunctions.oeAddHospital
+@description ""
+@parameter icrash.usecases.subfunctions.oeAddHospital.AdtHospitalID ""
+@parameter icrash.usecases.subfunctions.oeAddHospital.AdtLogin ""
+@parameter icrash.usecases.subfunctions.oeAddHospital.AdtPassword ""
+@endParameters
+@protocolCondition
+"
+"
+@endProtocolConditions
+@preCondition
+"
+"
+@endPreConditions
+@postCondition
+"
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

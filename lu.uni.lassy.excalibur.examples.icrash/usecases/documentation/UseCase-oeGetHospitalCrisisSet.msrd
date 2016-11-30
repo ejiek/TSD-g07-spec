@@ -1,0 +1,26 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:46 MSK 2016
+*/
+
+
+@@Use Case Subfunction icrash.usecases.subfunctions.oeGetHospitalCrisisSet
+@description ""
+@parameter icrash.usecases.subfunctions.oeGetHospitalCrisisSet.AetCrisisStatus ""
+@endParameters
+@protocolCondition
+"
+"
+@endProtocolConditions
+@preCondition
+"
+"
+@endPreConditions
+@postCondition
+"
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

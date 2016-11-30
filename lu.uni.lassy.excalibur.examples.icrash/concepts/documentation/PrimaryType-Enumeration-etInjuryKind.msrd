@@ -1,0 +1,12 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:28 MSK 2016
+*/
+
+
+@@Primary Type Enumeration icrash.concepts.primarytypes.datatypes.etInjuryKind
+@description ""
+@operation
+icrash.concepts.primarytypes.datatypes.etInjuryKind.is
+""
+@endOperations

@@ -1,0 +1,26 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:49 MSK 2016
+*/
+
+
+@@Use Case Subfunction icrash.usecases.subfunctions.oeGetHospitalInjurySet
+@description ""
+@parameter icrash.usecases.subfunctions.oeGetHospitalInjurySet.AdtVictimID ""
+@endParameters
+@protocolCondition
+"
+"
+@endProtocolConditions
+@preCondition
+"
+"
+@endPreConditions
+@postCondition
+"
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

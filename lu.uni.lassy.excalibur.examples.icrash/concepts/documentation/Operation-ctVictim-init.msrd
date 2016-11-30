@@ -1,0 +1,25 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:13 MSK 2016
+*/
+
+
+@@Operation
+icrash.concepts.primarytypes.classes.ctVictim.init
+//parameters
+@parameter
+icrash.concepts.primarytypes.classes.ctVictim.init.Aid
+""
+@parameter
+icrash.concepts.primarytypes.classes.ctVictim.init.AcrisisID
+""
+@endParameters
+
+@description "
+used to initialize the current object as a new instance of the ctVictim type. "
+//postFunctional descriptions
+@postF 
+"true iff the system poststate includes the current object as a new ctVictim instance having its attributes equal to the ones provided as parameters. "
+@endPostF
+//example
+@example" "

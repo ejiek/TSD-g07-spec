@@ -1,0 +1,12 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:22 MSK 2016
+*/
+
+
+@@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtVictimID
+@description ""
+@operation
+icrash.concepts.primarytypes.datatypes.dtVictimID.is
+""
+@endOperations

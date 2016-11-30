@@ -1,0 +1,26 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:43 MSK 2016
+*/
+
+
+@@Use Case Subfunction icrash.usecases.subfunctions.oeDeleteInjury
+@description ""
+@parameter icrash.usecases.subfunctions.oeDeleteInjury.AdtInjuryID ""
+@endParameters
+@protocolCondition
+"
+"
+@endProtocolConditions
+@preCondition
+"
+"
+@endPreConditions
+@postCondition
+"
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

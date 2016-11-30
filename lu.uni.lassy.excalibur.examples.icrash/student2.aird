@@ -476,6 +476,8 @@
   <semanticResources>operations/environment/environment-actCoordinator-oeGetInjurySet.msr</semanticResources>
   <semanticResources>operations/environment/environment-actAdministrator-oeAddHospital.msr</semanticResources>
   <semanticResources>operations/environment/environment-actCoordinator-oeAddVictim.msr</semanticResources>
+  <semanticResources>concepts/documentation/Operation-etInjuryKind-is.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actHospital-outactHospital-oeGetHospitalVictimSet.msrd</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_VxVZ4PWqEeSOM9Kfym77Zg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/lu.uni.lassy.excalibur.ui.viewer/description/excalibur_models.odesign#//@ownedViewpoints[name='msr-viewpoint']"/>
   </ownedViews>

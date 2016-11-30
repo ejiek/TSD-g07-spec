@@ -8,7 +8,7 @@ import icrash.environment
 
 Operation Model {
 
-operation: actAdministrator.outactAdministrator.oeAddCoordinator(AdtCoordinatorID:dtCoordinatorID, AdtLogin:dtLogin, AdtPassword:dtPassword):ptBoolean
+operation: actCoordinator.outactCoordinator.oeAddVictim(AdtCrisisID:dtCrisisID):ptBoolean
 {
 preP{
   let TheSystem: ctState in
@@ -20,9 +20,9 @@ preP{
 /* PreP01 */
   and TheSystem.vpStarted = true
 /* PreF01 */
-  and TheSystem.rnctCoordinator->select(id.eq(AdtCoordinatorID))
-      = ColctCoordinators
-  and ColctCoordinators->isEmpty() = true
+  and TheSystem.rnctVictim->select(id.eq(AdtVIctimID))
+      = ColctVictims
+  and ColctVictims->isEmpty() = true
    }
 postF{
   let TheSystem: ctState in

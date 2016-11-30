@@ -1,0 +1,40 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:29 MSK 2016
+*/
+
+
+@@Operation
+icrash.environment.actAdministrator.outactAdministrator.oeAddHospital
+//parameters
+@parameter
+icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtCoordinatorID
+""
+@parameter
+icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtLogin
+""
+@parameter
+icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtPassword
+""
+@endParameters
+
+@description "
+ "
+//preProtocol descriptions
+@preP
+" "
+@endPreP
+//preFunctional descriptions
+@preF
+" "
+@endPreF
+//postFunctional descriptions
+@postF 
+" "
+@endPostF
+//postProtocol descriptions
+@postP 
+" "
+@endPostP
+//example
+@example" "

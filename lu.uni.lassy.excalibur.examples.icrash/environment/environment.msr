@@ -54,10 +54,6 @@ import lu.uni.lassy.messir.libraries.calendar
 				operation ieHospitalAdded():ptBoolean
 				operation ieHospitalDeleted():ptBoolean
 				
-				operation ieVictimAdded():ptBoolean
-				operation ieVictimDeleted():ptBoolean
-				operation ieInjuryAdded():ptBoolean
-				operation ieInjuryDeleted():ptBoolean
 	 		}
 		}
 		
@@ -89,9 +85,9 @@ import lu.uni.lassy.messir.libraries.calendar
 			operation init():ptBoolean
 
 			output interface outactCoordinator{
-				operation oeCreateVictim(AdtCrisisID:dtCrisisID):ptBoolean
+				operation oeAddVictim(AdtCrisisID:dtCrisisID):ptBoolean
 				operation oeDeleteVictim(AdtVictimID:dtVictimID):ptBoolean
-				operation oeCreateInjury(AdtVictimID:dtVictimID):ptBoolean
+				operation oeAddInjury(AdtVictimID:dtVictimID):ptBoolean
 				operation oeDeleteInjury(AdtInjuryID:dtInjuryID):ptBoolean
 				
 				operation oeInvalidateAlert(AdtAlertID:dtAlertID):ptBoolean
@@ -121,6 +117,13 @@ import lu.uni.lassy.messir.libraries.calendar
 				operation ieSendACrisis(ActCrisis:ctCrisis ):ptBoolean
 				operation ieSendAVictim(ActVictim:ctVictim ):ptBoolean
 				operation ieSendAInjury(ActInjury:ctInjury ):ptBoolean
+				
+				
+				//Inga. What for
+				operation ieVictimAdded():ptBoolean
+				operation ieVictimDeleted():ptBoolean
+				operation ieInjuryAdded():ptBoolean
+				operation ieInjuryDeleted():ptBoolean
 	 		}
 		}
 		

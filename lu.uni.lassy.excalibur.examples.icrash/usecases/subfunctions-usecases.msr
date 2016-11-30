@@ -13,7 +13,7 @@ import icrash.environment
 
   Use Case Model {
 //----------------------------------------------------
-  use case system subfunction oeCreateVictim(AdtCrisisID:dtCrisisID){
+  use case system subfunction oeAddVictim(AdtCrisisID:dtCrisisID){
     actor actCoordinator[primary,active]
     returned messages {
       ieVictimAdded() returned to actCoordinator
@@ -27,7 +27,7 @@ import icrash.environment
     }
   }
 //----------------------------------------------------
-  use case system subfunction oeCreateInjury(AdtVictimID:dtVictimID){
+  use case system subfunction oeAddInjury(AdtVictimID:dtVictimID){
     actor actCoordinator[primary,active]
     returned messages {
       ieInjuryAdded() returned to actCoordinator

@@ -1,0 +1,28 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:21 MSK 2016
+*/
+
+
+@@Operation
+icrash.concepts.primarytypes.classes.ctHospital.init
+//parameters
+@parameter
+icrash.concepts.primarytypes.classes.ctHospital.init.Aid
+""
+@parameter
+icrash.concepts.primarytypes.classes.ctHospital.init.Alogin
+""
+@parameter
+icrash.concepts.primarytypes.classes.ctHospital.init.Apwd
+""
+@endParameters
+
+@description "
+used to initialize the current object as a new instance of the ctHospital type. "
+//postFunctional descriptions
+@postF 
+"true iff the system poststate includes the current object as a new ctHospital instance having its attributes equal to the ones provided as parameters. "
+@endPostF
+//example
+@example" "

@@ -16,7 +16,7 @@ association assctAlertctCrisis
 	ctCrisis (rnTheCrisis)[1..1]
 
 association assctAlertctHuman
-	ctAlert(rnSignaled)[1..*]
+	ctAlert(rnSignaled)[1..*] // Why this role name? by Inga
 	ctHuman (rnSignaler)[1..1]
 
 association assctCrisisctCoordinator
@@ -27,9 +27,9 @@ association assctVictimCrisis //_t7
 	ctVictim(rnVictim)[1..*]
 	ctCrisis(rnTheCrisis)[1..1]	
 	
-association assctInjuryVictim //_t7
-	ctInjury (rnTheCrisis)[1..1]
-	ctVictim(rnAlerts)[1..*]
+association assctInjuryVictim //_t7 corrected by Inga
+	ctInjury (rnInjury)[1..1]
+	ctVictim(rnVictim)[1..*]
 
 // With Actors
 

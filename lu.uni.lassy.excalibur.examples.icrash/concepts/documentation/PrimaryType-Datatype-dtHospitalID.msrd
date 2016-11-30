@@ -1,0 +1,12 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:26 MSK 2016
+*/
+
+
+@@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtHospitalID
+@description ""
+@operation
+icrash.concepts.primarytypes.datatypes.dtHospitalID.is
+""
+@endOperations

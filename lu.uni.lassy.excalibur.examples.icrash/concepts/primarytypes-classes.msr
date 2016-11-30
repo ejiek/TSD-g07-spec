@@ -85,7 +85,7 @@ import lu.uni.lassy.messir.libraries.calendar
 				
 				operation init(
 										Aid:dtInjuryID ,
-										AvictimID:dtVictimID ):ptBoolean
+										AvictimID:dtVictimID ):ptBoolean //Et with Inga
 										
 				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
 				operation isSentToHospital(AactHospital:actHospital ):ptBoolean

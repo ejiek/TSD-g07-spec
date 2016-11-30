@@ -1,0 +1,34 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:31 MSK 2016
+*/
+
+
+@@Operation
+icrash.environment.actHospital.outactHospital.oeGetHospitalCrisisSet
+//parameters
+@parameter
+icrash.environment.actHospital.outactHospital.oeGetHospitalCrisisSet.AetCrisisStatus
+""
+@endParameters
+
+@description "
+ "
+//preProtocol descriptions
+@preP
+" "
+@endPreP
+//preFunctional descriptions
+@preF
+" "
+@endPreF
+//postFunctional descriptions
+@postF 
+" "
+@endPostF
+//postProtocol descriptions
+@postP 
+" "
+@endPostP
+//example
+@example" "

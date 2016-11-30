@@ -1,0 +1,26 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:41 MSK 2016
+*/
+
+
+@@Use Case Subfunction icrash.usecases.subfunctions.oeDeleteVictim
+@description ""
+@parameter icrash.usecases.subfunctions.oeDeleteVictim.AdtVictimID ""
+@endParameters
+@protocolCondition
+"
+"
+@endProtocolConditions
+@preCondition
+"
+"
+@endPreConditions
+@postCondition
+"
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

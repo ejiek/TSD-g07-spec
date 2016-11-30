@@ -10,6 +10,14 @@ import icrash.environment
 Operation Model {
 	
 operation: actHospital.outactHospital.oeGetHospitalVictimSet(AdtCrisisID:dtCrisisID):ptBoolean{
+preP{true}
+preF{true}
+postF{true}
+postP{true}
+
+	
+	
+	
 prolog{"src/Operations/Environment/OUT/outactHospital-oeGetHospitalVictimSet.pl"}
 }
 }

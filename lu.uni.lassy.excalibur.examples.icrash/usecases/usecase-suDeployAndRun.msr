@@ -151,15 +151,15 @@ package icrash.usecases.suDeployAndRun {
 //----------------------------------------------------
         steve
         executed instanceof subfunction
-              oeCreateVictim("1"){
-                ieMessage('The crisis status has been updated !')
+              oeAddVictim("1"){
+                ieMessage('Victim has been added !')
                 returned to steve
               }
 //----------------------------------------------------
         steve
         executed instanceof subfunction
-              oeCreateInjury("1","head"){
-                ieMessage('The crisis status has been updated !')
+              oeAddInjury("1","head"){
+                ieMessage('Injury has been added !')
                 returned to steve
               }
 //----------------------------------------------------

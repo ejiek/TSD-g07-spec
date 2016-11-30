@@ -1,0 +1,16 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:20 MSK 2016
+*/
+
+
+@@Primary Type Class icrash.concepts.primarytypes.classes.ctHospital
+@description ""
+@attribute
+icrash.concepts.primarytypes.classes.ctHospital.id
+""
+@endAttributes
+@operation
+icrash.concepts.primarytypes.classes.ctHospital.init
+""
+@endOperations

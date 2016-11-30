@@ -1,0 +1,22 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:15 MSK 2016
+*/
+
+
+@@Operation
+icrash.concepts.primarytypes.classes.ctVictim.isSentToHospital
+//parameters
+@parameter
+icrash.concepts.primarytypes.classes.ctVictim.isSentToHospital.AactHospital
+""
+@endParameters
+
+@description "
+ "
+//postFunctional descriptions
+@postF 
+" "
+@endPostF
+//example
+@example" "

@@ -1,0 +1,25 @@
+/*
+@author subli
+@date Wed Nov 30 13:25:12 MSK 2016
+*/
+
+
+@@Primary Type Class icrash.concepts.primarytypes.classes.ctVictim
+@description ""
+@attribute
+icrash.concepts.primarytypes.classes.ctVictim.id
+""
+@attribute
+icrash.concepts.primarytypes.classes.ctVictim.crisisID
+""
+@endAttributes
+@operation
+icrash.concepts.primarytypes.classes.ctVictim.init
+""
+@operation
+icrash.concepts.primarytypes.classes.ctVictim.isSentToCoordinator
+""
+@operation
+icrash.concepts.primarytypes.classes.ctVictim.isSentToHospital
+""
+@endOperations
