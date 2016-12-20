@@ -1,0 +1,16 @@
+/*
+* @author subli
+* @date Sun Dec 11 13:19:30 MSK 2016
+*/
+
+package icrash.operations.environment.actCoordinator.oeAddInjury {
+
+import lu.uni.lassy.messir.libraries.primitives
+
+
+	Operation Model {
+
+	}
+
+
+}

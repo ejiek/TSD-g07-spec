@@ -1,25 +1,16 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:12 MSK 2016
-*/
-
-
 @@Primary Type Class icrash.concepts.primarytypes.classes.ctVictim
-@description ""
+@description "Used to model victim of a crisis"
 @attribute
 icrash.concepts.primarytypes.classes.ctVictim.id
-""
-@attribute
-icrash.concepts.primarytypes.classes.ctVictim.crisisID
-""
+"the victim unique identification information."
 @endAttributes
 @operation
 icrash.concepts.primarytypes.classes.ctVictim.init
-""
+"used to initialize the current object as a new instance of the ctVictim type."
 @operation
 icrash.concepts.primarytypes.classes.ctVictim.isSentToCoordinator
-""
+"used to provide a given coordinator with current victim information."
 @operation
 icrash.concepts.primarytypes.classes.ctVictim.isSentToHospital
-""
+"used to provide a given hospital with current victim information."
 @endOperations

@@ -1,8 +1,2 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:08 MSK 2016
-*/
-
-
 @@Primary Type Association icrash.concepts.primarytypes.associations.assctVictimCrisis
-@description ""
+@description "at any point in time we need to know which victim has this injury."

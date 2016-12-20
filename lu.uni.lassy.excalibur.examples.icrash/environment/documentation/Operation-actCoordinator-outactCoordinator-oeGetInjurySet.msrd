@@ -1,34 +1,32 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:39 MSK 2016
-*/
-
-
 @@Operation
 icrash.environment.actCoordinator.outactCoordinator.oeGetInjurySet
 //parameters
 @parameter
 icrash.environment.actCoordinator.outactCoordinator.oeGetInjurySet.AdtVictimID
-""
+"the victim id information used to determine the injuries to send back to the actor"
 @endParameters
 
-@description "
- "
+@description 
+"sent to request all the ctInjury instances related to given victim."
+
 //preProtocol descriptions
 @preP
-" "
+"the system is started"
+@preP
+"the actor logged previously and did not log out ! (i.e. the associated ctCoordinator instance is considered logged)"
 @endPreP
+
 //preFunctional descriptions
 @preF
-" "
+" none "
 @endPreF
+
 //postFunctional descriptions
-@postF 
-" "
+@postF
+" the post state is the one obtained by satisfying the \msrcode{isSentToCoordinator} predicate for each Injury related to the provided victim id and for the actor sending the message \msrcode{ieSendAInjuryToCoordinator}. (cf. specification of \msrcode{isSentToCoordinator} predicate given for the \msrcode{ctInjury} type."
 @endPostF
+
 //postProtocol descriptions
 @postP 
-" "
+" none"
 @endPostP
-//example
-@example" "

@@ -1,12 +1,6 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:28 MSK 2016
-*/
-
-
 @@Primary Type Enumeration icrash.concepts.primarytypes.datatypes.etInjuryKind
-@description ""
+@description "this type is used to indicate the kind of injury victims gets in a crisis."
 @operation
 icrash.concepts.primarytypes.datatypes.etInjuryKind.is
-""
+"used to determine which litteral belongs to the enumeration."
 @endOperations

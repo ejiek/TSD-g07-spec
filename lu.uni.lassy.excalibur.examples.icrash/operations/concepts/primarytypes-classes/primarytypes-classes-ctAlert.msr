@@ -13,6 +13,9 @@ Operation Model {
 operation: icrash.concepts.primarytypes.classes.ctAlert.init(Aid:dtAlertID , Astatus:etAlertStatus , Alocation:dtGPSLocation , Ainstant:dtDateAndTime , Acomment:dtComment 
 ):ptBoolean{
 postF{
+let  AetCorruptionKind:etCorruptionKind in
+AetCorruptionKind = regular
+	
 if
 (
 /* Post F01 */
@@ -22,6 +25,7 @@ and Self.status = Astatus
 and Self.location = Alocation
 and Self.instant = Ainstant
 and Self.comment = Acomment
+and Self.corruption = AetCorruptionKind
 /* Post F02 */
 and (Self.oclIsNew and self = Self)
 )

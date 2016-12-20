@@ -1,0 +1,16 @@
+/*
+* @author subli
+* @date Thu Dec 15 18:22:42 MSK 2016
+*/
+
+package icrash.operations.enviroment.actCorrupter.oeCorruptAlert {
+
+import lu.uni.lassy.messir.libraries.primitives
+
+
+	Operation Model {
+
+	}
+
+
+}

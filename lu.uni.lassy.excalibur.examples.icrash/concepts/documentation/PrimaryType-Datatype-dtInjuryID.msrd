@@ -1,12 +1,6 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:24 MSK 2016
-*/
-
-
 @@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtInjuryID
-@description ""
+@description "A string used to identify injury."
 @operation
 icrash.concepts.primarytypes.datatypes.dtInjuryID.is
-""
+"used to determine which strings are considered as valid injury identifiers."
 @endOperations

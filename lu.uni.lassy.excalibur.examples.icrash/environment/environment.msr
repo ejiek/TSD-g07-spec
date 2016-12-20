@@ -87,7 +87,10 @@ import lu.uni.lassy.messir.libraries.calendar
 			output interface outactCoordinator{
 				operation oeAddVictim(AdtCrisisID:dtCrisisID):ptBoolean
 				operation oeDeleteVictim(AdtVictimID:dtVictimID):ptBoolean
-				operation oeAddInjury(AdtVictimID:dtVictimID):ptBoolean
+				operation oeAddInjury(
+								      AdtVictimID:dtVictimID,
+					 				  AetInjuryKind:etInjuryKind
+					 				  ):ptBoolean
 				operation oeDeleteInjury(AdtInjuryID:dtInjuryID):ptBoolean
 				
 				operation oeInvalidateAlert(AdtAlertID:dtAlertID):ptBoolean
@@ -119,7 +122,6 @@ import lu.uni.lassy.messir.libraries.calendar
 				operation ieSendAInjury(ActInjury:ctInjury ):ptBoolean
 				
 				
-				//Inga. What for
 				operation ieVictimAdded():ptBoolean
 				operation ieVictimDeleted():ptBoolean
 				operation ieInjuryAdded():ptBoolean
@@ -174,6 +176,20 @@ import lu.uni.lassy.messir.libraries.calendar
 			
 			input interface inactActivator{
 	 		}
+		}		
+		
+		actor actCorrupter[proactive] role rnactCorrupter cardinality [1..1]{
+
+			operation init():ptBoolean
+
+			output interface outactCorrupter{
+				proactive operation oeCorruptAlert(ActAlert:ctAlert ):ptBoolean
+			}
+			
+			input interface inactCorrupter{
+	 		}
 		}
+		
+		
 	}
 }

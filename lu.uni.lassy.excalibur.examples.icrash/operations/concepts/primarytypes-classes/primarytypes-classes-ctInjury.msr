@@ -16,8 +16,7 @@ Operation Model {
 //------------------------------------------------------------
 operation: icrash.concepts.primarytypes.classes.ctInjury.init(
 				Aid:dtInjuryID,
-                AvictimID:dtVictimID
-                //Where is Et? With Inga
+                AetInjuryKind:etInjuryKind
               ):ptBoolean{
 postF{
 if

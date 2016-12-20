@@ -1,15 +1,55 @@
 package icrash.operations.environment.actCoordinator.oeValidateAlert {
 
 import lu.uni.lassy.messir.libraries.primitives
-import lu.uni.lassy.messir.libraries.math
-import lu.uni.lassy.messir.libraries.string
-import lu.uni.lassy.messir.libraries.calendar
+
 import icrash.concepts.primarytypes.datatypes
+import icrash.concepts.primarytypes.classes
 import icrash.environment
 
 Operation Model {
 
 operation: actCoordinator.outactCoordinator.oeValidateAlert(AdtAlertID:dtAlertID):ptBoolean{
+preP{
+  let TheSystem: ctState in
+  let TheActor:actCoordinator in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = TheCoordinator
+  
+/* PreP01 */
+  and TheSystem.vpStarted = true
+/* PreP02 */
+  and TheActor.rnctAuthenticated.vpIsLogged = true
+/* PreP03 */
+  TheSystem.rnctAlert->select(id.eq(AdtAlertID))
+  = ColctAlert
+  and ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored )
+   }
+	
+preF{
+/* PreF01 */
+  TheSystem.rnctAlert->select(id.eq(AdtAlertID))
+  = ColctAlert
+  and ColctAlert->size().eq(1)
+}
+
+postF{
+  let TheSystem: ctState in
+  let TheActor:actAuthenticated in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = TheActor
+  
+/* PostF01 */
+TheSystem.rnCtAlert -> select(ctAlert.id = dtAlertID) = colAlerts
+and colAlerts->forAll(T:ctAlert | T.status@post=valid)
+
+/* PostF02 */
+and TheActor.rnInterfaceIN^ieMessage('The Alert is now declared as valid !')
+  
+}
+postP{true}
+	
 prolog{"src/Operations/Environment/OUT/outactCoordinator-oeValidateAlert.pl"}
 }
 

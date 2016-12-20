@@ -1,34 +1,35 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:36 MSK 2016
-*/
-
-
 @@Operation
 icrash.environment.actCoordinator.outactCoordinator.oeAddInjury
 //parameters
 @parameter
 icrash.environment.actCoordinator.outactCoordinator.oeAddInjury.AdtVictimID
-""
+"used to initialize the VictimId field"
+@parameter
+icrash.environment.actCoordinator.outactCoordinator.oeAddInjury.AetInjuryKind
+"used to initialize the InjuryKind field"
 @endParameters
 
-@description "
- "
+@description 
+"sent to add a new injury in the system's post state and environment's post state."
 //preProtocol descriptions
 @preP
-" "
+"the system is started"
+@preP
+"the actor logged previously and did not log out !"
 @endPreP
-//preFunctional descriptions
-@preF
-" "
-@endPreF
+
 //postFunctional descriptions
 @postF 
-" "
+" the ctState attribute for the next value for injury IDs is incremented by one at post."
+@postF
+" a new injury instance exists in the post state with etInjuryKind and injury ID being a string conversion of the dtInteger value available in the pre state in the ctState instance."
+@postF
+"the post state relates the new injury to the victim passed as a parameter."
+@postF
+"the coordinator actor is informed about the satisfaction of its request."
 @endPostF
+
 //postProtocol descriptions
 @postP 
-" "
+" none "
 @endPostP
-//example
-@example" "

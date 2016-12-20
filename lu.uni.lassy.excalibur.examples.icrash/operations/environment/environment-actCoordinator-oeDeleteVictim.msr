@@ -1,4 +1,4 @@
-package icrash.operations.environment.actCoordinator.oeGetInjurySet {
+package icrash.operations.environment.actCoordinator.oeDeleteVictim {
 
 import lu.uni.lassy.messir.libraries.primitives
 
@@ -7,12 +7,13 @@ import icrash.concepts.primarytypes.classes
 import icrash.environment
 
 Operation Model {
-operation: actCoordinator.outactCoordinator.oeGetInjurySet(AdtVictimID:dtVictimID):ptBoolean
-{
 
+operation: actCoordinator.outactCoordinator.oeDeleteVictim(AdtVictimID:dtVictimID):ptBoolean
+{
 preP{
   let TheSystem: ctState in
   let TheActor:actCoordinator in
+  let AdtVictimID:dtVictimID in
   
   self.rnActor.rnSystem = TheSystem
   and self.rnActor = TheCoordinator
@@ -21,7 +22,12 @@ preP{
   and TheSystem.vpStarted = true
 /* PreP02 */
   and TheActor.rnctAuthenticated.vpIsLogged = true
-   }
+/* PreF01 */
+  TheSystem.rnctVictim->select(id.eq(AdtVictimID))
+  = ColctVictims
+  and ColctVictims->size().eq(1)
+}
+
 postF{
   let TheSystem: ctState in
   let TheActor:actCoordinator in
@@ -30,9 +36,11 @@ postF{
   and self.rnActor = TheActor
   
 /* PostF01 */
-TheSystem.rnCtInjury -> select(ctVictim.id = dtVictimID) = colVictimsInjury
-and colVictimsInjury->forAll(T:ctInjury | T.isSentToACoordinator(TheActor).eq(true))
-
+  TheSystem.rnctVictim@post->select(id.eq(AdtVictimID))
+  = ColctVictims
+  and ColctVictims->size().eq(0)
+/* PostF02 */
+  and TheActor.rnInterfaceIN^ieVictimDeleted()
 }
 postP{true}
 

@@ -1,11 +1,6 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:40 MSK 2016
-*/
-
-
 @@Use Case Subfunction icrash.usecases.subfunctions.oeAddVictim
-@description ""
+@description
+"goal is to add a new victim in the system's post state."
 @parameter icrash.usecases.subfunctions.oeAddVictim.AdtCrisisID ""
 @endParameters
 @protocolCondition

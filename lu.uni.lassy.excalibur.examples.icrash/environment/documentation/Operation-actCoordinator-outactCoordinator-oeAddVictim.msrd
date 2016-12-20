@@ -1,34 +1,32 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:33 MSK 2016
-*/
-
-
 @@Operation
 icrash.environment.actCoordinator.outactCoordinator.oeAddVictim
 //parameters
 @parameter
 icrash.environment.actCoordinator.outactCoordinator.oeAddVictim.AdtCrisisID
-""
+"used to initialize the CrisisId field"
 @endParameters
 
-@description "
- "
+@description
+"sent to add a new victim in the system's post state."
 //preProtocol descriptions
 @preP
-" "
+"the system is started"
+@preP
+"the actor logged previously and did not log out !"
 @endPreP
-//preFunctional descriptions
-@preF
-" "
-@endPreF
+
 //postFunctional descriptions
 @postF 
-" "
+" the ctState attribute for the next value for victim IDs is incremented by one at post."
+@postF
+" a new victim instance exists in the post state with victim ID being a string conversion of the dtInteger value available in the pre state in the ctState instance."
+@postF
+"the post state relates the new victim to the crisis passed as a parameter."
+@postF
+"the coordinator actor is informed about the satisfaction of its request."
 @endPostF
+
 //postProtocol descriptions
 @postP 
-" "
+" none "
 @endPostP
-//example
-@example" "

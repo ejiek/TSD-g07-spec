@@ -13,6 +13,8 @@ import lu.uni.lassy.messir.libraries.calendar
 			state class ctState {
 				attribute nextValueForAlertID:dtInteger
 				attribute nextValueForCrisisID:dtInteger
+				attribute nextValueForVictimID:dtInteger
+				attribute nextValueForInjuryID:dtInteger
 				attribute clock:dtDateAndTime
 				attribute crisisReminderPeriod:dtSecond
 				attribute maxCrisisReminderPeriod:dtSecond
@@ -21,6 +23,8 @@ import lu.uni.lassy.messir.libraries.calendar
 				
 				operation init(	AnextValueForAlertID:dtInteger,
 												AnextValueForCrisisID:dtInteger,
+												AnextValueForVictimID:dtInteger,
+												AnextValueForInjuryID:dtInteger,
 				 								Aclock:dtDateAndTime,
 												AcrisisReminderPeriod:dtSecond ,
 												AmaxCrisisReminderPeriod:dtSecond ,
@@ -34,6 +38,7 @@ import lu.uni.lassy.messir.libraries.calendar
 				attribute location:dtGPSLocation
 				attribute instant:dtDateAndTime
 				attribute comment:dtComment
+				attribute corruption:etCorruptionKind
 				
 				operation init(     	Aid:dtAlertID ,
 										Astatus:etAlertStatus ,
@@ -69,11 +74,9 @@ import lu.uni.lassy.messir.libraries.calendar
 			
 			class ctVictim role rnctVictim cardinality [0..*]{
 				attribute id:dtVictimID
-				attribute crisisID:dtCrisisID
 				
 				operation init(
-										Aid:dtVictimID ,
-										AcrisisID:dtCrisisID ):ptBoolean
+										Aid:dtVictimID ):ptBoolean
 										
 				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
 				operation isSentToHospital(AactHospital:actHospital ):ptBoolean
@@ -81,11 +84,13 @@ import lu.uni.lassy.messir.libraries.calendar
 			
 			class ctInjury role rnctInjury cardinality [0..*]{
 				attribute id:dtInjuryID
-				attribute victimID:dtVictimID
+				attribute kind:etInjuryKind
+				
 				
 				operation init(
-										Aid:dtInjuryID ,
-										AvictimID:dtVictimID ):ptBoolean //Et with Inga
+										Aid:dtInjuryID,
+               							AetInjuryKind:etInjuryKind
+										 ):ptBoolean
 										
 				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
 				operation isSentToHospital(AactHospital:actHospital ):ptBoolean

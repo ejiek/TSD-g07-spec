@@ -1,34 +1,32 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:31 MSK 2016
-*/
-
-
 @@Operation
 icrash.environment.actHospital.outactHospital.oeGetHospitalCrisisSet
 //parameters
 @parameter
 icrash.environment.actHospital.outactHospital.oeGetHospitalCrisisSet.AetCrisisStatus
-""
+"the status information used to determine the crisis to send back to the actor"
 @endParameters
 
-@description "
- "
+@description 
+"sent to request all the ctCrisis instances having a specific status."
+
 //preProtocol descriptions
 @preP
-" "
+"the system is started"
+@preP
+"the actor logged previously and did not log out ! (i.e. the associated ctCoordinator instance is considered logged)"
 @endPreP
+
 //preFunctional descriptions
 @preF
-" "
+" none "
 @endPreF
+
 //postFunctional descriptions
-@postF 
-" "
+@postF
+"for each crisis having the provided status, a message \msrcode{ieSendACrisisToHospital} has been sent with the crisis instance to the calling actor instance."
 @endPostF
+
 //postProtocol descriptions
 @postP 
-" "
+" none"
 @endPostP
-//example
-@example" "

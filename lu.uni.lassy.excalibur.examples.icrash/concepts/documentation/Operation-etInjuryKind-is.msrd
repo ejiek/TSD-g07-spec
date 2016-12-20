@@ -1,16 +1,8 @@
-/*
-@author subli
-@date Mon Nov 28 18:44:48 MSK 2016
-*/
-
-
 @@Operation
 icrash.concepts.primarytypes.datatypes.etInjuryKind.is
-@description "
- "
+@description
+" used to determine which litteral belongs to the enumeration."
 //postFunctional descriptions
 @postF 
-" "
+" true if the value is equal to one of the following values: \msrcode{arm,head,leg,chest}"
 @endPostF
-//example
-@example" "

@@ -15,9 +15,7 @@ import icrash.environment
 Operation Model {
 //------------------------------------------------------------
 operation: icrash.concepts.primarytypes.classes.ctVictim.init(
-                Aid:dtVictimID,
-                AcrisisID:dtCrisisID 
-              ):ptBoolean{
+                Aid:dtVictimID ):ptBoolean{
 postF{
 if
 (

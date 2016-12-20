@@ -1,12 +1,6 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:26 MSK 2016
-*/
-
-
 @@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtHospitalID
-@description ""
+@description "A string used to identify hospitals."
 @operation
 icrash.concepts.primarytypes.datatypes.dtHospitalID.is
-""
+"used to determine which strings are considered as valid hospitals identifiers."
 @endOperations

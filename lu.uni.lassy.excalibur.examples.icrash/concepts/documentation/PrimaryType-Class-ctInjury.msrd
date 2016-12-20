@@ -1,25 +1,18 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:16 MSK 2016
-*/
-
-
 @@Primary Type Class icrash.concepts.primarytypes.classes.ctInjury
-@description ""
+@description "Used to model injury victim gets in a crisis"
 @attribute
 icrash.concepts.primarytypes.classes.ctInjury.id
-""
-@attribute
-icrash.concepts.primarytypes.classes.ctInjury.victimID
-""
+"the injury unique identification information."
+@attribute icrash.concepts.primarytypes.classes.ctInjury.kind
+"the type of injury describes body part"
 @endAttributes
 @operation
 icrash.concepts.primarytypes.classes.ctInjury.init
-""
+"used to initialize the current object as a new instance of the ctInjury type."
 @operation
 icrash.concepts.primarytypes.classes.ctInjury.isSentToCoordinator
-""
+"used to provide a given coordinator with current injury information."
 @operation
 icrash.concepts.primarytypes.classes.ctInjury.isSentToHospital
-""
+"used to provide a given hospital with current injury information."
 @endOperations

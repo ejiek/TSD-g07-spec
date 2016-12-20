@@ -13,40 +13,42 @@ operation: actCoordinator.outactCoordinator.oeAddVictim(AdtCrisisID:dtCrisisID):
 preP{
   let TheSystem: ctState in
   let TheActor:actCoordinator in
+  let AdtVictimID:dtVictimID in
   
   self.rnActor.rnSystem = TheSystem
   and self.rnActor = TheCoordinator
   
 /* PreP01 */
   and TheSystem.vpStarted = true
-/* PreF01 */
-  and TheSystem.rnctVictim->select(id.eq(AdtVIctimID))
-      = ColctVictims
-  and ColctVictims->isEmpty() = true
+/* PreP02 */
+  and TheActor.rnctAuthenticated.vpIsLogged = true
    }
 postF{
   let TheSystem: ctState in
-  let TheactCoordinator:actCoordinator in
-  let ThectCoordinator:ctCoordinator in
+  let TheActor:actCoordinator in
+  let AdtVictimID:dtVictimID in
+  
   self.rnActor.rnSystem = TheSystem
   and self.rnActor = TheActor
+  
 /* PostF01 */
-  TheactCoordinator.init()
+ TheSystem.nextValueForVictimID=PrenextValueForVictimID
+ and PrenextValueForVictimID.add(1) = PostnextValueForVictimID
+ and TheSystem@post.nextValueForVictimID = PostnextValueForVictimID
+
 /* PostF02 */
-  and ThectCoordinator.init(AdtCoordinatorID,AdtLogin,AdtPassword)
+and TheSystem.nextValueForVictimID.todtString().eq(AdtVictimID)
+
+and ActVictim.init(AdtVictimID)
+				   
+and 
+TheSystem.rnCtCrisis@post.includes(ActVictim)
 
 /* PostF03 */
-  and TheactCoordinator@post.rnctCoordinator = ThectCoordinator
-  
-/* PostF04 */  
-  and ThectCoordinator@post.rnactAuthenticated = TheactCoordinator
-   
-/* PostF05 */  
-  and TheActor.rnInterfaceIN^ieCoordinatorAdded()
+and TheActor.rnInterfaceIN^ieVictimAdded()
 }
 postP{true}
 
-prolog{"src/Operations/Environment/OUT/outactAdministrator-oeAddCoordinator.pl"}
 }
 }
 }

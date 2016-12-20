@@ -1,11 +1,7 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:44 MSK 2016
-*/
-
-
-@@Use Case Subfunction icrash.usecases.subfunctions.oeAddHospital
-@description ""
+@@Use Case Subfunction icrash.usecases.subfunctions.oeAddHospital hidden
+@description
+"goal is to add a new hospital in the system's post state and environment's post state.
+"
 @parameter icrash.usecases.subfunctions.oeAddHospital.AdtHospitalID ""
 @parameter icrash.usecases.subfunctions.oeAddHospital.AdtLogin ""
 @parameter icrash.usecases.subfunctions.oeAddHospital.AdtPassword ""

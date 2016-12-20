@@ -1,11 +1,6 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:41 MSK 2016
-*/
-
-
 @@Use Case Subfunction icrash.usecases.subfunctions.oeDeleteVictim
-@description ""
+@description 
+"goal is to delete an existing victim in the system's post state."
 @parameter icrash.usecases.subfunctions.oeDeleteVictim.AdtVictimID ""
 @endParameters
 @protocolCondition

@@ -1,0 +1,10 @@
+/*
+@author subli
+@date Wed Dec 14 21:50:53 MSK 2016
+*/
+
+
+@@view uc-oeDeleteHospital
+@model Use-Case icrash.usecases.subfunctions.oeDeleteHospital 
+@description ""
+@caption ""

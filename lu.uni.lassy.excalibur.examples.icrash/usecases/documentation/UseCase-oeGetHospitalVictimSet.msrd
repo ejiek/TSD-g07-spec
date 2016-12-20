@@ -1,11 +1,6 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:47 MSK 2016
-*/
-
-
 @@Use Case Subfunction icrash.usecases.subfunctions.oeGetHospitalVictimSet
-@description ""
+@description 
+"goal is to request all the ctVictim instances related to given crisis."
 @parameter icrash.usecases.subfunctions.oeGetHospitalVictimSet.AdtCrisisID ""
 @endParameters
 @protocolCondition

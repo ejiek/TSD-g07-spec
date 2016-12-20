@@ -1,22 +1,14 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:11 MSK 2016
-*/
-
-
 @@Operation
 icrash.concepts.primarytypes.classes.ctCrisis.isSentToHospital
 //parameters
 @parameter
 icrash.concepts.primarytypes.classes.ctCrisis.isSentToHospital.AactHospital
-""
+"the message destination actor"
 @endParameters
 
-@description "
- "
+@description 
+"used to provide a given hospital with current crisis information."
 //postFunctional descriptions
 @postF 
-" "
+"true if the message ieSendACrisisToHospital is sent by the simulator to the input interface of the given hospital actor with the current crisis as parameter value."
 @endPostF
-//example
-@example" "

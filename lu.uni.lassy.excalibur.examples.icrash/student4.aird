@@ -478,6 +478,62 @@
   <semanticResources>operations/environment/environment-actCoordinator-oeAddVictim.msr</semanticResources>
   <semanticResources>concepts/documentation/Operation-etInjuryKind-is.msrd</semanticResources>
   <semanticResources>environment/documentation/Operation-actHospital-outactHospital-oeGetHospitalVictimSet.msrd</semanticResources>
+  <semanticResources>operations/environment/environment-actCoordinator-oeAddInjury.msr</semanticResources>
+  <semanticResources>operations/environment/environment-actCoordinator-oeDeleteVictim.msr</semanticResources>
+  <semanticResources>operations/environment/environment-actCoordinator-oeDeleteInjury.msr</semanticResources>
+  <semanticResources>operations/environment/evironment-actCoordinator-oeAddInjury.msr</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctCrisis-isSentToHospital.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctHospital-init.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctInjury-init.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctInjury-isSentToCoordinator.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctInjury-isSentToHospital.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctVictim-init.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctVictim-isSentToCoordinator.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctVictim-isSentToHospital.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-dtHospitalID-is.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-dtInjuryID-is.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-dtVictimID-is.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Association-assctHospitalactHospital.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Association-assctInjuryVictim.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Association-assctVictimCrisis.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Class-ctHospital.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Class-ctInjury.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Class-ctVictim.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Datatype-dtHospitalID.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Datatype-dtInjuryID.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Datatype-dtVictimID.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Enumeration-etInjuryKind.msrd</semanticResources>
+  <semanticResources>environment/documentation/Actor-actHospital.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actAdministrator-outactAdministrator-oeAddHospital.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actAdministrator-outactAdministrator-oeDeleteHospital.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actCoordinator-outactCoordinator-oeAddVictim.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actCoordinator-outactCoordinator-oeDeleteInjury.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actCoordinator-outactCoordinator-oeDeleteVictim.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actCoordinator-outactCoordinator-oeGetInjurySet.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actCoordinator-outactCoordinator-oeGetVictimSet.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actHospital-init.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actHospital-outactHospital-oeGetHospitalCrisisSet.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actHospital-outactHospital-oeGetHospitalInjurySet.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeAddHospital.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeAddInjury.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeAddVictim.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeDeleteHospital.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeDeleteInjury.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeDeleteVictim.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeGetHospitalCrisisSet.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeGetHospitalInjurySet.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeGetHospitalVictimSet.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeGetInjurySet.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeGetVictimSet.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-suHospitalCrisisInteraction.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-ugHospitalMonitor.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actCoordinator-outactCoordinator-oeAddInjury.msrd</semanticResources>
+  <semanticResources>documentation/View-em-view9.msrd</semanticResources>
+  <semanticResources>documentation/View-uc-oeDeleteHospital.msrd</semanticResources>
+  <semanticResources>operations/concepts/primarytypes-datatypes/primarytypes-datatypes-etCorruptionKind.msr</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Enumeration-etCorruptionKind.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-etCorruptionKind-is.msrd</semanticResources>
+  <semanticResources>operations/environment/enviroment-actCorrupter-oeCorruptAlert.msr</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_X0EtsPWqEeSOM9Kfym77Zg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/lu.uni.lassy.excalibur.ui.viewer/description/excalibur_models.odesign#//@ownedViewpoints[name='msr-viewpoint']"/>
   </ownedViews>

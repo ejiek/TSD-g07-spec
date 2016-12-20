@@ -1,16 +1,44 @@
 package icrash.operations.environment.actHospital.oeGetHospitalCrisisSet {
 
 import lu.uni.lassy.messir.libraries.primitives
-import lu.uni.lassy.messir.libraries.math
-import lu.uni.lassy.messir.libraries.string
-import lu.uni.lassy.messir.libraries.calendar
+
 import icrash.concepts.primarytypes.datatypes
+import icrash.concepts.primarytypes.classes
 import icrash.environment
 
 Operation Model {
-	
-operation: actHospital.outactHospital.oeGetHospitalCrisisSet(AetCrisisStatus:etCrisisStatus):ptBoolean{
-prolog{"src/Operations/Environment/OUT/outactHospital-oeGetHospitalCrisisSet.pl"}
+operation: actHospital.outactHospital.oeGetHospitalCrisisSet(AetCrisisStatus:etCrisisStatus):ptBoolean
+{
+
+preP{
+  let TheSystem: ctState in
+  let TheActor:actHospital in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = actHospital
+  
+/* PreP01 */
+  and TheSystem.vpStarted = true
+/* PreP02 */
+  and TheActor.rnctAuthenticated.vpIsLogged = true
+   }
+postF{
+  let TheSystem: ctState in
+  let TheActor:actHospital in
+  let ThectHospital:ctHospital in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = TheActor
+  and TheActor.rnctHospital = ThectHospital
+  
+/* PostF01 */
+	TheSystem.rnCtCrisis -> select(ctCrisis.status = AetCrisisStatus) = colCrisis
+	and colCrisis->forAll(T:ctCrisis | T.isSentToAHospital(TheActor).eq(true))
+//and colCrisis->forAll(T:ctCrisis | TheActor.rnInterfaceIN^ieSendACrisisToHospital(T))
+
+}
+postP{true}
+
 }
 }
 }

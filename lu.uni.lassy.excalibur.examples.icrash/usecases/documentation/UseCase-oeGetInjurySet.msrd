@@ -1,11 +1,6 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:50 MSK 2016
-*/
-
-
 @@Use Case Subfunction icrash.usecases.subfunctions.oeGetInjurySet
-@description ""
+@description 
+"goal is to request all the ctInjury instances related to given victim."
 @parameter icrash.usecases.subfunctions.oeGetInjurySet.AdtVictimID ""
 @endParameters
 @protocolCondition

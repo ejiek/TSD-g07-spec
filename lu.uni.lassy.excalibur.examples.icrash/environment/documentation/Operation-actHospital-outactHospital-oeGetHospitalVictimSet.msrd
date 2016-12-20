@@ -1,34 +1,32 @@
-/*
-@author subli
-@date Wed Nov 30 12:25:37 MSK 2016
-*/
-
-
 @@Operation
 icrash.environment.actHospital.outactHospital.oeGetHospitalVictimSet
 //parameters
 @parameter
 icrash.environment.actHospital.outactHospital.oeGetHospitalVictimSet.AdtCrisisID
-""
+"the crisis id information used to determine the victims to send back to the actor"
 @endParameters
 
-@description "
- "
+@description 
+"sent to request all the ctVictim instances related to given crisis."
+
 //preProtocol descriptions
 @preP
-" "
+"the system is started"
+@preP
+"the actor logged previously and did not log out !"
 @endPreP
+
 //preFunctional descriptions
 @preF
-" "
+" none "
 @endPreF
+
 //postFunctional descriptions
 @postF 
-" "
+" the post state is the one obtained by satisfying the \msrcode{isSentToHospital} predicate for each victim related to the provided crisis id and for the actor sending the message \msrcode{ieSendAVictimToHospital}. (cf. specification of \msrcode{isSentToHospital} predicate given for the \msrcode{ctVictim} type."
 @endPostF
+
 //postProtocol descriptions
 @postP 
-" "
+" none "
 @endPostP
-//example
-@example" "

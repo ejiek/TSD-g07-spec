@@ -1,17 +1,8 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:13 MSK 2016
-*/
-
-
 @@Operation
 icrash.concepts.primarytypes.classes.ctVictim.init
 //parameters
 @parameter
 icrash.concepts.primarytypes.classes.ctVictim.init.Aid
-""
-@parameter
-icrash.concepts.primarytypes.classes.ctVictim.init.AcrisisID
 ""
 @endParameters
 

@@ -5,7 +5,8 @@
 
 
 @@Use Case Subfunction icrash.usecases.subfunctions.oeDeleteHospital
-@description ""
+@description 
+"goal is to delete an existing hospital in the system's post state and environment's post state."
 @parameter icrash.usecases.subfunctions.oeDeleteHospital.AdtHospitalID ""
 @endParameters
 @protocolCondition

@@ -28,8 +28,8 @@ association assctVictimCrisis //_t7
 	ctCrisis(rnTheCrisis)[1..1]	
 	
 association assctInjuryVictim //_t7 corrected by Inga
-	ctInjury (rnInjury)[1..1]
-	ctVictim(rnVictim)[1..*]
+	ctInjury (rnInjury)[1..*]
+	ctVictim(rnVictim)[1..1]
 
 // With Actors
 

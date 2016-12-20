@@ -1,24 +1,20 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:51 MSK 2016
-*/
-
-
 @@Use Case icrash.usecases.ugHospitalMonitor.ugHospitalMonitor
-@description ""
+@description
+"
+the actHospital's goal is to get the detailed list of existing crisis, victims and injuries. 
+"
 @protocolCondition
 "
+the iCrash system has been deployed
 "
 @endProtocolConditions
 @preCondition
 "
+none
 "
 @endPreConditions
 @postCondition
 "
-"
-@endPostConditions
-@additionalInformation
-"
 none
 "
+@endPostConditions

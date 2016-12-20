@@ -12,10 +12,10 @@ import lu.uni.lassy.messir.libraries.calendar
 			 datatype dtAlertID extends dtString {
 				operation is():ptBoolean
 			}
-			datatype dtVictimID extends dtString { //_t7
+			datatype dtVictimID extends dtString {
 				operation is():ptBoolean
 			}
-			datatype dtInjuryID extends dtString { //_t7
+			datatype dtInjuryID extends dtString {
 				operation is():ptBoolean
 			}
 			datatype dtCrisisID extends dtString {
@@ -56,7 +56,7 @@ import lu.uni.lassy.messir.libraries.calendar
 				constants["pending", "handled", "solved","closed"]
 				operation is():ptBoolean
 			}
-			enum etInjuryKind { //_t7
+			enum etInjuryKind {
 				constants["head", "chest", "arm", "leg"]
 				operation is():ptBoolean
 			}
@@ -70,6 +70,10 @@ import lu.uni.lassy.messir.libraries.calendar
 			}
 			enum etHumanKind {
 				constants["witness", "victim", "anonymous"]
+				operation is():ptBoolean
+			}
+			enum etCorruptionKind {
+				constants["corrupted", "restored", "regular"]
 				operation is():ptBoolean
 			}
 		}

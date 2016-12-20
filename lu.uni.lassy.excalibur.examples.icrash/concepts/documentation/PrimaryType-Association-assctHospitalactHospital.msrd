@@ -1,8 +1,2 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:10 MSK 2016
-*/
-
-
 @@Primary Type Association icrash.concepts.primarytypes.associations.assctHospitalactHospital
-@description ""
+@description "frequent messages we don't know anything about."

@@ -1,7 +1,7 @@
 @@Use Case icrash.usecases.ugMonitor.ugMonitor
 @description
 "
-the actCoordinator's goal is to get the detailed list of existing crisis or alerts to decide on next actions to undertake. 
+the actCoordinator's goal is to get the detailed list of existing crisis, alerts, victims and injuries to decide on next actions to undertake. 
 "
 @protocolCondition
 "

@@ -1,0 +1,36 @@
+package icrash.operations.enviroment.actCorrupter.oeCorruptAlert {
+
+import lu.uni.lassy.messir.libraries.primitives
+
+import icrash.concepts.primarytypes.datatypes
+import icrash.concepts.primarytypes.classes
+import icrash.environment
+
+	Operation Model {
+		operation: actCorrupter.outactCorrupter.oeCorruptAlert(ActAlert:ctAlert):ptBoolean{
+			preP{
+  				let TheSystem: ctState in
+  				self.rnActor.rnSystem = TheSystem
+  			  
+				/* PreP01 */
+				and TheSystem.vpStarted = true // ?
+				/* PreP02 */
+				TheSystem.rnctAlert->select(id.eq(AdtAlertID))
+				 = ColctAlert
+				 and ColctAlert->size().eq(1)
+  			}
+  			
+  			postP{
+  				let TheSystem: ctState in
+  				self.rnActor.rnSystem = TheSystem
+  				
+  				  TheSystem.rnctAlert@post->select(id.eq(ActAlert.id)) = ActAlert
+  				  change the corrupted attribute
+  				  
+  			}
+  
+		}
+	}
+
+
+}

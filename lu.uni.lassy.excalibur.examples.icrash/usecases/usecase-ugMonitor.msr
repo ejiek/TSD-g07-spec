@@ -9,9 +9,13 @@ package icrash.usecases.ugMonitor {
       
       reuse oeGetCrisisSet[0..*]
       reuse oeGetAlertsSet[0..*]
+      reuse oeGetVictimSet[0..*]
+      reuse oeGetInjurySet[0..*]
       
       step a: icrash.environment.actCoordinator executes oeGetAlertsSet
       step b: icrash.environment.actCoordinator executes oeGetCrisisSet
+      step c: icrash.environment.actCoordinator executes oeGetVictimSet
+      step d: icrash.environment.actCoordinator executes oeGetInjurySet
     }
 	}
 }

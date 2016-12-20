@@ -1,16 +1,10 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:25 MSK 2016
-*/
-
-
 @@Operation
 icrash.concepts.primarytypes.datatypes.dtInjuryID.is
-@description "
- "
+@description
+" used to determine which strings are considered as valid injury identifiers."
 //postFunctional descriptions
 @postF 
-" "
+" if the length of the value attribute of a dtInjuryID is a ptInteger greater than zero 
+and lower or equal to 20 then the operation returns the ptBoolean true, else the ptBoolean false."
 @endPostF
-//example
-@example" "
+

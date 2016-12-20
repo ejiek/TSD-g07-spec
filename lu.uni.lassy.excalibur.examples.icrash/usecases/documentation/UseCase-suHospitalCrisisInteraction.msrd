@@ -1,24 +1,14 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:53 MSK 2016
-*/
-
-
 @@Use Case icrash.usecases.suHospitalCrisisInteraction.suHospitalCrisisInteraction
-@description ""
-@protocolCondition
-"
-"
+@description 
+"the actHospital's goal is to monitor the crisis in order to act as necessary to handle the victims. "
+@protocolCondition 
+" the iCrash system has been deployed"
+@protocolCondition 
+"the coordinator actor involved in the use case has been declared by the actor actAdministrator"
 @endProtocolConditions
-@preCondition
-"
-"
+@preCondition 
+"none"
 @endPreConditions
-@postCondition
-"
-"
+@postCondition 
+" modifications have been made by the coordinator on existing alerts or crisis OR the coordinator requested an updated status on existing alerts or crisis."
 @endPostConditions
-@additionalInformation
-"
-none
-"

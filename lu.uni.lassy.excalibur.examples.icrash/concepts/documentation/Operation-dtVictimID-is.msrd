@@ -1,16 +1,10 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:23 MSK 2016
-*/
-
-
 @@Operation
 icrash.concepts.primarytypes.datatypes.dtVictimID.is
-@description "
- "
+@description
+" used to determine which strings are considered as valid victim identifiers."
 //postFunctional descriptions
 @postF 
-" "
+" if the length of the value attribute of a dtVictimID is a ptInteger greater than zero 
+and lower or equal to 20 then the operation returns the ptBoolean true, else the ptBoolean false."
 @endPostF
-//example
-@example" "
+

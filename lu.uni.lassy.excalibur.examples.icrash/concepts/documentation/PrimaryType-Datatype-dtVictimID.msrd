@@ -1,12 +1,6 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:22 MSK 2016
-*/
-
-
 @@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtVictimID
-@description ""
+@description "A string used to identify victim."
 @operation
 icrash.concepts.primarytypes.datatypes.dtVictimID.is
-""
+"used to determine which strings are considered as valid victim identifiers."
 @endOperations

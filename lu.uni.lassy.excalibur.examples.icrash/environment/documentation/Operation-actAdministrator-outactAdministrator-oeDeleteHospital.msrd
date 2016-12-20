@@ -1,34 +1,31 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:30 MSK 2016
-*/
-
-
 @@Operation
 icrash.environment.actAdministrator.outactAdministrator.oeDeleteHospital
 //parameters
 @parameter
 icrash.environment.actAdministrator.outactAdministrator.oeDeleteHospital.AdtHospitalID
-""
+"used for ctHospital instance retrieval"
 @endParameters
 
-@description "
- "
+@description 
+"sent to delete an existing hospital in the system's post state and environment's post state."
+
 //preProtocol descriptions
 @preP
-" "
+"the system is started"
 @endPreP
 //preFunctional descriptions
 @preF
-" "
+"the actor logged previously and did not log out ! (i.e. the associated ctAdministrator instance is considered logged)"
 @endPreF
+
 //postFunctional descriptions
 @postF 
-" "
+" the ctHospital class instance having the required id do not belong anymore to the post state as well as is related actHospital actor instance."
+@postF
+"the administrator actor is informed about the satisfaction of its request."
 @endPostF
+
 //postProtocol descriptions
 @postP 
-" "
+" none "
 @endPostP
-//example
-@example" "

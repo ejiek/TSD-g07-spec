@@ -1,34 +1,33 @@
-/*
-@author subli
-@date Wed Nov 30 13:25:34 MSK 2016
-*/
-
-
 @@Operation
 icrash.environment.actCoordinator.outactCoordinator.oeDeleteVictim
 //parameters
 @parameter
 icrash.environment.actCoordinator.outactCoordinator.oeDeleteVictim.AdtVictimID
-""
+"used for ctVictim instance retrieval"
 @endParameters
 
-@description "
- "
+@description 
+" sent to delete an existing Victims in the system's post."
 //preProtocol descriptions
 @preP
-" "
+"the system is started"
+@preP
+"the actor logged previously and did not log out ! (i.e. the associated ctAdministrator instance is considered logged)"
 @endPreP
+
 //preFunctional descriptions
 @preF
-" "
+" it is supposed that there exist one ctVictim instance with the same \msrcode{id} attribute that one of the coordinators want to delete."
 @endPreF
+
 //postFunctional descriptions
 @postF 
-" "
+" the ctVictim class instance having the required id do not belong anymore to the post state."
+@postF
+"the coordinator actor is informed about the satisfaction of its request."
 @endPostF
+
 //postProtocol descriptions
 @postP 
-" "
+" none "
 @endPostP
-//example
-@example" "
