@@ -1,0 +1,51 @@
+package icrash.operations.environment.actCoordinator.oeDeleteInjury {
+
+import lu.uni.lassy.messir.libraries.primitives
+
+import icrash.concepts.primarytypes.datatypes
+import icrash.concepts.primarytypes.classes
+import icrash.environment
+
+Operation Model {
+
+operation: actCoordinator.outactCoordinator.oeDeleteInjury(AdtInjuryID:dtInjuryID):ptBoolean
+{
+preP{
+  let TheSystem: ctState in
+  let TheActor:actCoordinator in
+  let AdtInjuryID:dtInjuryID in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = TheCoordinator
+  
+/* PreP01 */
+  and TheSystem.vpStarted = true
+/* PreP02 */
+  and TheActor.rnctAuthenticated.vpIsLogged = true
+  }
+preF{
+/* PreF01 */
+  TheSystem.rnctInjury->select(id.eq(AdtInjuryID))
+  = ColctInjury
+  and ColctInjury->size().eq(1)
+}
+
+postF{
+  let TheSystem: ctState in
+  let TheActor:actCoordinator in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = TheActor
+  
+/* PostF01 */
+  TheSystem.rnctInjury->select(id.eq(AdtInjuryID))
+  = ColctInjury
+  and ColctInjury->size().eq(0)
+/* PostF02 */
+  and TheActor.rnInterfaceIN^ieInjuryDeleted()
+}
+postP{true}
+
+}
+}
+}

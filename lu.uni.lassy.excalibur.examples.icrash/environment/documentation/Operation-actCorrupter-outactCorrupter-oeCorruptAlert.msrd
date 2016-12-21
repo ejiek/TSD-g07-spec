@@ -1,0 +1,28 @@
+@@Operation
+icrash.environment.actCorrupter.outactCorrupter.oeCorruptAlert
+//parameters
+@parameter
+icrash.environment.actCorrupter.outactCorrupter.oeCorruptAlert.ActAlert
+"actAlert corrupted by corrupter"
+@endParameters
+
+@description 
+"used to corrupt alert data and set its corruption status to corrupted"
+//preProtocol descriptions
+@preP
+"the system is started"
+@preP
+"the actor logged previously and did not log out ! (i.e. the associated ctCoordinator instance is considered logged)"
+@endPreP
+
+@preF
+" none "
+@endPreF
+//postFunctional descriptions
+@postF 
+"in systems post state ctAlert with given dtAlertID is now corrupted and its state is set to etCorruptionKind.corrupted"
+@endPostF
+//postProtocol descriptions
+@postP 
+" none "
+@endPostP

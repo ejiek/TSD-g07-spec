@@ -40,7 +40,7 @@ postF{
   = ColctAlert
   
   /* PostF01 */
-  and if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored )
+  and if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored ))
   then(
 	TheActor.rnInterfaceIN^ieMessage('The Alert is now declared as valid !')
 	true
@@ -60,7 +60,7 @@ postP{
   = ColctAlert
   
   /* PostP01 */
-  and if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored )
+  and if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored ))
   then(
 	ColctAlert->forAll(T:ctAlert | T.status@post=valid)
   )

@@ -1,0 +1,96 @@
+\subsection{Operation Model for oeAddInjury}
+
+\label{OM-oeAddInjury}
+
+
+The \msrcode{oeAddInjury} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{oeAddInjury}{sent to add a new injury in the system's post state and environment's post state.}
+
+	\addrowheading{Parameters}
+	\addnumbereddoublerow{}{AdtVictimID: dtVictimID}{used to initialize the VictimId field} 
+	\addnumbereddoublerow{}{AetInjuryKind: etInjuryKind}{used to initialize the InjuryKind field} 
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+	\addrowheading{Pre-Condition (protocol)}
+	\addnumberedsinglerow{PreP}{the system is started}
+	\addnumberedsinglerow{PreP}{the actor logged previously and did not log out !}
+		
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{ the ctState attribute for the next value for injury IDs is incremented by one at post.}
+	\addnumberedsinglerow{PostF}{ a new injury instance exists in the post state with etInjuryKind and injury ID being a string conversion of the dtInteger value available in the pre state in the ctState instance.}
+	\addnumberedsinglerow{PostF}{the post state relates the new injury to the victim passed as a parameter.}
+	\addnumberedsinglerow{PostF}{the coordinator actor is informed about the satisfaction of its request.}
+
+	\addrowheading{Post-Condition (protocol)}
+	\addnumberedsinglerow{PostP}{ none }
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeAddInjury-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeAddInjury}.},label=OM-actCoordinator-oeAddInjury-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  let AdtInjuryID:dtInjuryID in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheCoordinator
+	  
+	/* PreP01 */
+	  and TheSystem.vpStarted = true
+	/* PreP02 */
+	  and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheActor
+	  
+	/* PostF01 */
+	 TheSystem.nextValueForInjuryID=PrenextValueForInjuryID
+	 and PrenextValueForInjuryID.add(1) = PostnextValueForInjuryID
+	 and TheSystem@post.nextValueForInjuryID = PostnextValueForInjuryID
+	
+	/* PostF02 */
+	and TheSystem.nextValueForInjuryID.todtString().eq(AdtInjuryID)
+	and ActInjury.init(AdtInjuryID, AetInjuryKind)
+	
+	/* PostF03 */
+	TheSystem.rnCtVictim -> select(ctVictim.id = dtVictimID) = TEMP
+	TEMP.rnTheInjury->msrAny(true) = ActInjury
+	
+	/* PostF04 */
+	and TheActor.rnInterfaceIN^ieInjuryAdded()}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

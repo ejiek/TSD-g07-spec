@@ -1,0 +1,95 @@
+\subsection{Operation Model for oeAddVictim}
+
+\label{OM-oeAddVictim}
+
+
+The \msrcode{oeAddVictim} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{oeAddVictim}{sent to add a new victim in the system's post state.}
+
+	\addrowheading{Parameters}
+	\addnumbereddoublerow{}{AdtCrisisID: dtCrisisID}{used to initialize the CrisisId field} 
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+	\addrowheading{Pre-Condition (protocol)}
+	\addnumberedsinglerow{PreP}{the system is started}
+	\addnumberedsinglerow{PreP}{the actor logged previously and did not log out !}
+		
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{ the ctState attribute for the next value for victim IDs is incremented by one at post.}
+	\addnumberedsinglerow{PostF}{ a new victim instance exists in the post state with victim ID being a string conversion of the dtInteger value available in the pre state in the ctState instance.}
+	\addnumberedsinglerow{PostF}{the post state relates the new victim to the crisis passed as a parameter.}
+	\addnumberedsinglerow{PostF}{the coordinator actor is informed about the satisfaction of its request.}
+
+	\addrowheading{Post-Condition (protocol)}
+	\addnumberedsinglerow{PostP}{ none }
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeAddVictim-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeAddVictim}.},label=OM-actCoordinator-oeAddVictim-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  let AdtVictimID:dtVictimID in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheCoordinator
+	  
+	/* PreP01 */
+	  and TheSystem.vpStarted = true
+	/* PreP02 */
+	  and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheActor
+	  
+	/* PostF01 */
+	 TheSystem.nextValueForVictimID=PrenextValueForVictimID
+	 and PrenextValueForVictimID.add(1) = PostnextValueForVictimID
+	 and TheSystem@post.nextValueForVictimID = PostnextValueForVictimID
+	
+	/* PostF02 */
+	and TheSystem.nextValueForVictimID.todtString().eq(AdtVictimID)
+	
+	and ActVictim.init(AdtVictimID)
+					   
+	TheSystem.rnCtCrisis -> select(ctCrisis.id = dtCrisisID) = TEMP
+	TEMP.rnTheVictim->msrAny(true) = ActVictim //Inga
+	
+	/* PostF03 */
+	and TheActor.rnInterfaceIN^ieVictimAdded()}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

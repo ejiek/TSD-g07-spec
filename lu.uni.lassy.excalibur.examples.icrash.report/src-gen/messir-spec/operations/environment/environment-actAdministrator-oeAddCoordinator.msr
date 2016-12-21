@@ -12,10 +12,10 @@ operation: actAdministrator.outactAdministrator.oeAddCoordinator(AdtCoordinatorI
 {
 preP{
   let TheSystem: ctState in
-  let TheActor:actAdministrator in
+  let TheActor:actCoordinator in
   
   self.rnActor.rnSystem = TheSystem
-  and self.rnActor = TheActor
+  and self.rnActor = TheCoordinator
   
 /* PreP01 */
   and TheSystem.vpStarted = true

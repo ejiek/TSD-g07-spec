@@ -1,0 +1,81 @@
+\subsection{Operation Model for oeGetInjurySet}
+
+\label{OM-oeGetInjurySet}
+
+
+The \msrcode{oeGetInjurySet} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{oeGetInjurySet}{sent to request all the ctInjury instances related to given victim.}
+
+	\addrowheading{Parameters}
+	\addnumbereddoublerow{}{AdtVictimID: dtVictimID}{the victim id information used to determine the injuries to send back to the actor} 
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+	\addrowheading{Pre-Condition (protocol)}
+	\addnumberedsinglerow{PreP}{the system is started}
+	\addnumberedsinglerow{PreP}{the actor logged previously and did not log out ! (i.e. the associated ctCoordinator instance is considered logged)}
+		
+	\addrowheading{Pre-Condition (functional)}
+	\addnumberedsinglerow{PreF}{ none }
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{ the post state is the one obtained by satisfying the \msrcode{isSentToCoordinator} predicate for each Injury related to the provided victim id and for the actor sending the message \msrcode{ieSendAInjuryToCoordinator}. (cf. specification of \msrcode{isSentToCoordinator} predicate given for the \msrcode{ctInjury} type.}
+
+	\addrowheading{Post-Condition (protocol)}
+	\addnumberedsinglerow{PostP}{ none}
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeGetInjurySet-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeGetInjurySet}.},label=OM-actCoordinator-oeGetInjurySet-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheCoordinator
+	  
+	/* PreP01 */
+	  and TheSystem.vpStarted = true
+	/* PreP02 */
+	  and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheActor
+	  
+	/* PostF01 */
+	TheSystem.rnCtInjury -> select(ctVictim.id = dtVictimID) = colVictimsInjury
+	and colVictimsInjury->forAll(T:ctInjury | T.isSentToACoordinator(TheActor).eq(true))}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

@@ -1,0 +1,91 @@
+\subsection{Operation Model for oeDeleteInjury}
+
+\label{OM-oeDeleteInjury}
+
+
+The \msrcode{oeDeleteInjury} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{oeDeleteInjury}{ sent to delete an existing Injury in the system's post.}
+
+	\addrowheading{Parameters}
+	\addnumbereddoublerow{}{AdtInjuryID: dtInjuryID}{used for ctInjury instance retrieval} 
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+	\addrowheading{Pre-Condition (protocol)}
+	\addnumberedsinglerow{PreP}{the system is started}
+	\addnumberedsinglerow{PreP}{the actor logged previously and did not log out ! (i.e. the associated ctAdministrator instance is considered logged)}
+		
+	\addrowheading{Pre-Condition (functional)}
+	\addnumberedsinglerow{PreF}{ it is supposed that there exist one ctInjury instance with the same \msrcode{id} attribute that one of the coordinators want to delete.}
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{ the ctInjury class instance having the required id do not belong anymore to the post state.}
+	\addnumberedsinglerow{PostF}{the coordinator actor is informed about the satisfaction of its request.}
+
+	\addrowheading{Post-Condition (protocol)}
+	\addnumberedsinglerow{PostP}{ none }
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeDeleteInjury-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeDeleteInjury}.},label=OM-actCoordinator-oeDeleteInjury-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  let AdtInjuryID:dtInjuryID in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheCoordinator
+	  
+	/* PreP01 */
+	  and TheSystem.vpStarted = true
+	/* PreP02 */
+	  and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	/* Pre Functional:*/
+	preF{/* PreF01 */
+	  TheSystem.rnctInjury->select(id.eq(AdtInjuryID))
+	  = ColctInjury
+	  and ColctInjury->size().eq(1)}
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheActor
+	  
+	/* PostF01 */
+	  TheSystem.rnctInjury->select(id.eq(AdtInjuryID))
+	  = ColctInjury
+	  and ColctInjury->size().eq(0)
+	/* PostF02 */
+	  and TheActor.rnInterfaceIN^ieInjuryDeleted()}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

@@ -27,6 +27,12 @@ The table below is providing comments on the graphical views given for the datat
 \adddoubletwocolumnrow{attribute}{\msrcode{longitude: dtLongitude}}{for the longitude part of the coordinate.}
 \adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{used to determine which couples are considered as valid dtGPSLocation values.}
 \adddoubletwocolumnrow{operation}{\msrcode{isNearTo(AGPSLocation:dtGPSLocation):ptBoolean}}{used to determine if locations are considered enough close to be treated as equivalent in the application domain context.}
+\adddoublerow{dtHospitalID}{A string used to identify hospitals.}
+\addsingletwocolumnrow{extends}{dtString}
+\adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{used to determine which strings are considered as valid hospitals identifiers.}
+\adddoublerow{dtInjuryID}{A string used to identify injury.}
+\addsingletwocolumnrow{extends}{dtString}
+\adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{used to determine which strings are considered as valid injury identifiers.}
 \adddoublerow{dtLatitude}{used to define a latitude value of a geograpical positions on earth.}
 \addsingletwocolumnrow{extends}{dtReal}
 \adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{used to determine which strings are considered as valid dtLatitude.}
@@ -42,6 +48,9 @@ The table below is providing comments on the graphical views given for the datat
 \adddoublerow{dtPhoneNumber}{a string used to store the phone number from the human declaring the crisis or the alert.}
 \addsingletwocolumnrow{extends}{dtString}
 \adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{used to determine which strings are considered as valid dtPhoneNumber.}
+\adddoublerow{dtVictimID}{A string used to identify victim.}
+\addsingletwocolumnrow{extends}{dtString}
+\adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{used to determine which strings are considered as valid victim identifiers.}
 \end{datadictionary}
 
 
@@ -52,6 +61,8 @@ The table below is providing comments on the graphical views given for the datat
 this type is used to indicate the different validation status of an alert.
 }
 \adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{used to determine which litteral belongs to the enumeration.}
+\adddoublerow{etCorruptionKind}{}
+\adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{}
 \adddoublerow{etCrisisStatus}{
 this type is used to indicate the different handling status of a crisis.
 }
@@ -63,6 +74,8 @@ this type is used to indicate the different types of a crisis.
 \adddoublerow{etHumanKind}{
 this type is used to indicate the kind of human that informs about a car crash crisis.
 }
+\adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{used to determine which litteral belongs to the enumeration.}
+\adddoublerow{etInjuryKind}{this type is used to indicate the kind of injury victims gets in a crisis.}
 \adddoubletwocolumnrow{operation}{\msrcode{is():ptBoolean}}{used to determine which litteral belongs to the enumeration.}
 \end{datadictionary}
 

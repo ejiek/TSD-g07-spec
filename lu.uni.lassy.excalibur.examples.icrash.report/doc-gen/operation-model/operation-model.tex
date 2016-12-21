@@ -31,7 +31,9 @@ showtabs=false
 \section{Environment - Out Interface Operation Scheme for actAdministrator}
 \label{OM-EM-OutInterface-OS-actAdministrator}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actAdministrator-oeAddCoordinator.tex}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actAdministrator-oeAddHospital.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actAdministrator-oeDeleteCoordinator.tex}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actAdministrator-oeDeleteHospital.tex}
 \section{Environment - Out Interface Operation Scheme for actAuthenticated}
 \label{OM-EM-OutInterface-OS-actAuthenticated}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actAuthenticated-oeLogin.tex}
@@ -41,15 +43,26 @@ showtabs=false
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actComCompany-oeAlert.tex}
 \section{Environment - Out Interface Operation Scheme for actCoordinator}
 \label{OM-EM-OutInterface-OS-actCoordinator}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeAddVictim.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeCloseCrisis.tex}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeDeleteInjury.tex}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeDeleteVictim.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeGetAlertsSet.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeGetCrisisSet.tex}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeGetInjurySet.tex}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeGetVictimSet.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeInvalidateAlert.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeReportOnCrisis.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeSetCrisisHandler.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeSetCrisisStatus.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeSetCrisisType.tex}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeValidateAlert.tex}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actCoordinator-oeAddInjury.tex}
+\section{Environment - Out Interface Operation Scheme for actHospital}
+\label{OM-EM-OutInterface-OS-actHospital}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actHospital-oeGetHospitalCrisisSet.tex}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actHospital-oeGetHospitalInjurySet.tex}
+\input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actHospital-oeGetHospitalVictimSet.tex}
 \section{Environment - Out Interface Operation Scheme for actMsrCreator}
 \label{OM-EM-OutInterface-OS-actMsrCreator}
 \input{./doc-gen/operation-model/OM-Environment/OM-OUT/OM-actMsrCreator-oeCreateSystemAndEnvironment.tex}
@@ -85,14 +98,28 @@ showtabs=false
 \input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctCrisis-handlingDelayPassed.tex}
 \input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctCrisis-maxHandlingDelayPassed.tex}
 \input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctCrisis-isSentToCoordinator.tex}
+\input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctCrisis-isSentToHospital.tex}
 \input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctCrisis-isAllocatedIfPossible.tex}
+\section{Primary Types - Operation Schemes for Class ctHospital} 
+\label{OM-CM-PTClass-ctHospital}
+\input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctHospital-init.tex}
 \section{Primary Types - Operation Schemes for Class ctHuman} 
 \label{OM-CM-PTClass-ctHuman}
 \input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctHuman-init.tex}
 \input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctHuman-isAcknowledged.tex}
+\section{Primary Types - Operation Schemes for Class ctInjury} 
+\label{OM-CM-PTClass-ctInjury}
+\input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctInjury-init.tex}
+\input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctInjury-isSentToCoordinator.tex}
+\input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctInjury-isSentToHospital.tex}
 \section{Primary Types - Operation Schemes for Class ctState} 
 \label{OM-CM-PTClass-ctState}
 \input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctState-init.tex}
+\section{Primary Types - Operation Schemes for Class ctVictim} 
+\label{OM-CM-PTClass-ctVictim}
+\input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctVictim-init.tex}
+\input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctVictim-isSentToCoordinator.tex}
+\input{./doc-gen/operation-model/OM-PrimaryTypesClasses/OM-PrimaryTypeClass-ctVictim-isSentToHospital.tex}
 
 
 %% ***************************************************************
@@ -116,6 +143,9 @@ showtabs=false
 \label{OM-CM-PTDataType-dtGPSLocation}
 \input{./doc-gen/operation-model/OM-PrimaryTypesDatatypes/OM-PrimaryTypeDatatype-dtGPSLocation-is.tex}
 \input{./doc-gen/operation-model/OM-PrimaryTypesDatatypes/OM-PrimaryTypeDatatype-dtGPSLocation-isNearTo.tex}
+\section{Primary Types - Operation Schemes for Datatype dtHospitalID} 
+\label{OM-CM-PTDataType-dtHospitalID}
+\input{./doc-gen/operation-model/OM-PrimaryTypesDatatypes/OM-PrimaryTypeDatatype-dtHospitalID-is.tex}
 \section{Primary Types - Operation Schemes for Datatype dtLatitude} 
 \label{OM-CM-PTDataType-dtLatitude}
 \input{./doc-gen/operation-model/OM-PrimaryTypesDatatypes/OM-PrimaryTypeDatatype-dtLatitude-is.tex}
@@ -138,6 +168,9 @@ showtabs=false
 \section{Primary Types - Operation Schemes for Enumeration etAlertStatus} 
 \label{OM-CM-PTEnumType-etAlertStatus}
 \input{./doc-gen/operation-model/OM-PrimaryTypesDatatypes/OM-PrimaryTypeEnumeration-etAlertStatus-is.tex}
+\section{Primary Types - Operation Schemes for Enumeration etCorruptionKind} 
+\label{OM-CM-PTEnumType-etCorruptionKind}
+\input{./doc-gen/operation-model/OM-PrimaryTypesDatatypes/OM-PrimaryTypeEnumeration-etCorruptionKind-is.tex}
 \section{Primary Types - Operation Schemes for Enumeration etCrisisStatus} 
 \label{OM-CM-PTEnumType-etCrisisStatus}
 \input{./doc-gen/operation-model/OM-PrimaryTypesDatatypes/OM-PrimaryTypeEnumeration-etCrisisStatus-is.tex}
@@ -147,6 +180,9 @@ showtabs=false
 \section{Primary Types - Operation Schemes for Enumeration etHumanKind} 
 \label{OM-CM-PTEnumType-etHumanKind}
 \input{./doc-gen/operation-model/OM-PrimaryTypesDatatypes/OM-PrimaryTypeEnumeration-etHumanKind-is.tex}
+\section{Primary Types - Operation Schemes for Enumeration etInjuryKind} 
+\label{OM-CM-PTEnumType-etInjuryKind}
+\input{./doc-gen/operation-model/OM-PrimaryTypesDatatypes/OM-PrimaryTypeEnumeration-etInjuryKind-is.tex}
 
 
 

@@ -99,6 +99,19 @@ else (result = false)
 endif}
 prolog{"src/Operations/Concepts/PrimaryTypesClasses/PrimaryTypesClasses-ctCrisis-isSentToCoordinator.pl" }}
 //------------------------------------------------------------
+operation: icrash.concepts.primarytypes.classes.ctCrisis.isSentToHospital(AactHospital:actHospital):ptBoolean
+{
+postF{ 
+if 
+(
+/* Post F01 */
+  AactHospital.rnInterfaceIN.ieSendACrisis(self)
+)
+then (result = true)
+else (result = false)
+endif}
+prolog{"src/Operations/Concepts/PrimaryTypesClasses/PrimaryTypesClasses-ctCrisis-isSentToHospital.pl" }}
+//------------------------------------------------------------
 operation: icrash.concepts.primarytypes.classes.ctCrisis.isAllocatedIfPossible():ptBoolean
 {
 postF{ 

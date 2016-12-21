@@ -1,0 +1,90 @@
+\subsection{Operation Model for oeDeleteVictim}
+
+\label{OM-oeDeleteVictim}
+
+
+The \msrcode{oeDeleteVictim} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{oeDeleteVictim}{ sent to delete an existing Victims in the system's post.}
+
+	\addrowheading{Parameters}
+	\addnumbereddoublerow{}{AdtVictimID: dtVictimID}{used for ctVictim instance retrieval} 
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+	\addrowheading{Pre-Condition (protocol)}
+	\addnumberedsinglerow{PreP}{the system is started}
+	\addnumberedsinglerow{PreP}{the actor logged previously and did not log out ! (i.e. the associated ctAdministrator instance is considered logged)}
+		
+	\addrowheading{Pre-Condition (functional)}
+	\addnumberedsinglerow{PreF}{ it is supposed that there exist one ctVictim instance with the same \msrcode{id} attribute that one of the coordinators want to delete.}
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{ the ctVictim class instance having the required id do not belong anymore to the post state.}
+	\addnumberedsinglerow{PostF}{the coordinator actor is informed about the satisfaction of its request.}
+
+	\addrowheading{Post-Condition (protocol)}
+	\addnumberedsinglerow{PostP}{ none }
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeDeleteVictim-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeDeleteVictim}.},label=OM-actCoordinator-oeDeleteVictim-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  let AdtVictimID:dtVictimID in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheCoordinator
+	  
+	/* PreP01 */
+	  and TheSystem.vpStarted = true
+	/* PreP02 */
+	  and TheActor.rnctAuthenticated.vpIsLogged = true
+	/* PreF01 */
+	  TheSystem.rnctVictim->select(id.eq(AdtVictimID))
+	  = ColctVictims
+	  and ColctVictims->size().eq(1)}
+	
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+	  let TheActor:actCoordinator in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheActor
+	  
+	/* PostF01 */
+	  TheSystem.rnctVictim->select(id.eq(AdtVictimID))
+	  = ColctVictims
+	  and ColctVictims->size().eq(0)
+	/* PostF02 */
+	  and TheActor.rnInterfaceIN^ieVictimDeleted()}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

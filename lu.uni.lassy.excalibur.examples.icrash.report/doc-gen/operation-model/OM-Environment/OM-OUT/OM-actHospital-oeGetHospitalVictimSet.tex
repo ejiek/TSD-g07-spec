@@ -1,0 +1,81 @@
+\subsection{Operation Model for oeGetHospitalVictimSet}
+
+\label{OM-oeGetHospitalVictimSet}
+
+
+The \msrcode{oeGetHospitalVictimSet} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{oeGetHospitalVictimSet}{sent to request all the ctVictim instances related to given crisis.}
+
+	\addrowheading{Parameters}
+	\addnumbereddoublerow{}{AdtCrisisID: dtCrisisID}{the crisis id information used to determine the victims to send back to the actor} 
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+	\addrowheading{Pre-Condition (protocol)}
+	\addnumberedsinglerow{PreP}{the system is started}
+	\addnumberedsinglerow{PreP}{the actor logged previously and did not log out !}
+		
+	\addrowheading{Pre-Condition (functional)}
+	\addnumberedsinglerow{PreF}{ none }
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{ the post state is the one obtained by satisfying the \msrcode{isSentToHospital} predicate for each victim related to the provided crisis id and for the actor sending the message \msrcode{ieSendAVictimToHospital}. (cf. specification of \msrcode{isSentToHospital} predicate given for the \msrcode{ctVictim} type.}
+
+	\addrowheading{Post-Condition (protocol)}
+	\addnumberedsinglerow{PostP}{ none }
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actHospital-oeGetHospitalVictimSet-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeGetHospitalVictimSet}.},label=OM-actHospital-oeGetHospitalVictimSet-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  let TheActor:actHospital in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = actHospital
+	  
+	/* PreP01 */
+	  and TheSystem.vpStarted = true
+	/* PreP02 */
+	  and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+	  let TheActor:actHospital in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheActor
+	  
+	/* PostF01 */
+	TheSystem.rnCtVictim -> select(ctCrisis.id = dtCrisisID) = colCrisisVictims
+	and colCrisisVictims->forAll(T:ctVictim | T.isSentToAHospital(TheActor).eq(true))}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

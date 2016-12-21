@@ -1,0 +1,25 @@
+package icrash.operations.concepts.primarytypes.datatypes.etCorruptionKind.msr {
+
+import lu.uni.lassy.messir.libraries.primitives
+
+
+	Operation Model {
+		operation: icrash.concepts.primarytypes.datatypes.etCorruptionKind.is():ptBoolean{
+    postF{ 
+        let TheResult: ptBoolean in
+        ( if
+          ( self = regular
+            or self = corrupted
+            or self = restored
+          )
+          then (TheResult = true)
+          else (TheResult = false)
+          endif
+          result = TheResult
+        )
+    }
+}
+	}
+
+
+}

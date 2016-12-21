@@ -1,0 +1,54 @@
+package icrash.operations.evironment.actCoordinator.oeAddInjury {
+
+import lu.uni.lassy.messir.libraries.primitives
+
+import icrash.concepts.primarytypes.datatypes
+import icrash.concepts.primarytypes.classes
+import icrash.environment
+
+Operation Model {
+operation: actCoordinator.outactCoordinator.oeAddInjury(AdtVictimID:dtVictimID, AetInjuryKind:etInjuryKind):ptBoolean
+{
+
+preP{
+  let TheSystem: ctState in
+  let TheActor:actCoordinator in
+  let AdtInjuryID:dtInjuryID in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = TheCoordinator
+  
+/* PreP01 */
+  and TheSystem.vpStarted = true
+/* PreP02 */
+  and TheActor.rnctAuthenticated.vpIsLogged = true
+   }
+postF{
+  let TheSystem: ctState in
+  let TheActor:actCoordinator in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = TheActor
+  
+/* PostF01 */
+ TheSystem.nextValueForInjuryID=PrenextValueForInjuryID
+ and PrenextValueForInjuryID.add(1) = PostnextValueForInjuryID
+ and TheSystem@post.nextValueForInjuryID = PostnextValueForInjuryID
+
+/* PostF02 */
+and TheSystem.nextValueForInjuryID.todtString().eq(AdtInjuryID)
+and ActInjury.init(AdtInjuryID, AetInjuryKind)
+
+/* PostF03 */
+TheSystem.rnCtVictim -> select(ctVictim.id = dtVictimID) = TEMP
+TEMP.rnTheInjury->msrAny(true) = ActInjury
+
+/* PostF04 */
+and TheActor.rnInterfaceIN^ieInjuryAdded()
+
+}
+postP{true}
+
+}
+}
+}

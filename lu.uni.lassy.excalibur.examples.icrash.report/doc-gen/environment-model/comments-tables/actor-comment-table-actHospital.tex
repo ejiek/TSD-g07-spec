@@ -1,0 +1,36 @@
+\subsection{\msrcode{actHospital} Actor}
+
+
+\begin{actortable}
+	\addheading{Actor}
+	
+	\adddoublerow{actHospital}{represents actor responsible of observing crisis with their victims and injuries for the \msricrash system.}
+	
+	\addrowheading{Extends}
+	\addsinglerow{icrash.environment.actAuthenticated}
+	
+	
+	
+	
+	
+
+	\addrowheading{OutputInterfaces}
+	\addnumbereddoublerow{OUT}{\hypertarget{actHospital.outactHospital.oeGetHospitalCrisisSet}
+			{\msrcode{oeGetHospitalCrisisSet(AetCrisisStatus:etCrisisStatus):ptBoolean}}}
+			{sent to request all the ctCrisis instances having a specific status.}
+	\addnumbereddoublerow{OUT}{\hypertarget{actHospital.outactHospital.oeGetHospitalVictimSet}
+			{\msrcode{oeGetHospitalVictimSet(AdtCrisisID:dtCrisisID):ptBoolean}}}
+			{sent to request all the ctVictim instances for given Crisis.}
+	\addnumbereddoublerow{OUT}{\hypertarget{actHospital.outactHospital.oeGetHospitalInjurySet}
+			{\msrcode{oeGetHospitalInjurySet(AdtVictimID:dtVictimID):ptBoolean}}}
+			{sent to request all the ctInjury instances for given Victim.}
+	
+	\addrowheading{InputInterfaces}
+	\addnumbereddoublerow{IN}{\msrcode{ieSendACrisisToHospital(ActCrisis:ctCrisis):ptBoolean}}
+							 {allows for receiving a requested ctCrisis instance.}
+	\addnumbereddoublerow{IN}{\msrcode{ieSendAVictimToHospital(ActVictim:ctVictim):ptBoolean}}
+							 {allows for receiving a requested ctVictim instance.}
+	\addnumbereddoublerow{IN}{\msrcode{ieSendAInjuryToHospital(ActInjury:ctInjury):ptBoolean}}
+							 {allows for receiving a requested ctInjury instance.}
+	
+\end{actortable}

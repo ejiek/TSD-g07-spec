@@ -1,0 +1,54 @@
+\subsubsection{usergoal-ugHospitalMonitor}
+
+\label{RE-use-case-ugHospitalMonitor}
+
+
+
+the actHospital's goal is to get the detailed list of existing crisis, victims and injuries. 
+
+
+\begin{usecase}
+  \addheading{Use-Case Description}
+  \addsingletwocolumnrow{Name}{ugHospitalMonitor}
+  \addsingletwocolumnrow{Scope}{system}
+  \addsingletwocolumnrow{Level}{usergoal}
+  
+
+\addrowheading{Primary actor(s)}
+\addnumberedsinglerow{}{\msrcode{actHospital[active]}}
+
+
+
+\addrowheading{Goal(s) description}
+\addsinglerow{
+the actHospital's goal is to get the detailed list of existing crisis, victims and injuries. 
+}
+
+\addrowheading{Reuse}
+\addnumberedsinglerow{}{\msrucname{oeGetHospitalCrisisSet [0..*]}}
+\addnumberedsinglerow{}{\msrucname{oeGetHospitalVictimSet [0..*]}}
+\addnumberedsinglerow{}{\msrucname{oeGetHospitalInjurySet [0..*]}}
+
+\addrowheading{Protocol condition(s)}
+\addnumberedsinglerow{}{
+the iCrash system has been deployed
+}
+
+\addrowheading{Pre-condition(s)}
+\addnumberedsinglerow{}{
+none
+}
+
+\addrowheading{Main post-condition(s)}
+\addnumberedsinglerow{}{
+none
+}
+
+\addrowheading{Main Steps}
+\addalphanumberedsinglerow{}{the actor \msrcode{actHospital} executes the \msrucname{oeGetHospitalVictimSet} use case}
+\addalphanumberedsinglerow{}{the actor \msrcode{actHospital} executes the \msrucname{oeGetHospitalInjurySet} use case}
+\addalphanumberedsinglerow{}{the actor \msrcode{actHospital} executes the \msrucname{oeGetHospitalCrisisSet} use case}
+
+
+\end{usecase} 
+

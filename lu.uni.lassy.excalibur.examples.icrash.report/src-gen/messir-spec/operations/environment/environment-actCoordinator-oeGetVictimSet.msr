@@ -1,0 +1,42 @@
+package icrash.operations.environment.actCoordinator.oeGetVictimSet {
+
+import lu.uni.lassy.messir.libraries.primitives
+
+import icrash.concepts.primarytypes.datatypes
+import icrash.concepts.primarytypes.classes
+import icrash.environment
+
+Operation Model {
+operation: actCoordinator.outactCoordinator.oeGetVictimSet(AdtCrisisID:dtCrisisID):ptBoolean
+{
+
+preP{
+  let TheSystem: ctState in
+  let TheActor:actCoordinator in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = TheCoordinator
+  
+/* PreP01 */
+  and TheSystem.vpStarted = true
+/* PreP02 */
+  and TheActor.rnctAuthenticated.vpIsLogged = true
+   }
+postF{
+  let TheSystem: ctState in
+  let TheActor:actCoordinator in
+  
+  self.rnActor.rnSystem = TheSystem
+  and self.rnActor = TheActor
+  
+/* PostF01 */
+TheSystem.rnCtVictim -> select(ctCrisis.id = AdtCrisisID) = colCrisisVictims
+and colCrisisVictims->forAll(T:ctVictim | T.isSentToACoordinator(TheActor).eq(true))
+
+
+}
+postP{true}
+
+}
+}
+}

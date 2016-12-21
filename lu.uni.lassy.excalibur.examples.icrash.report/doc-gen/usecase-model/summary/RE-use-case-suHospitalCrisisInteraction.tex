@@ -1,0 +1,48 @@
+\subsubsection{summary-suHospitalCrisisInteraction}
+
+\label{RE-use-case-suHospitalCrisisInteraction}
+
+
+the actHospital's goal is to monitor the crisis in order to act as necessary to handle the victims. 		  
+
+
+\begin{usecase}
+  \addheading{Use-Case Description}
+  \addsingletwocolumnrow{Name}{suHospitalCrisisInteraction}
+  \addsingletwocolumnrow{Scope}{system}
+  \addsingletwocolumnrow{Level}{summary}
+  
+
+\addrowheading{Primary actor(s)}
+\addnumberedsinglerow{}{\msrcode{actHospital[active]}}
+
+
+
+\addrowheading{Goal(s) description}
+\addsinglerow{the actHospital's goal is to monitor the crisis in order to act as necessary to handle the victims. }
+
+\addrowheading{Reuse}
+\addnumberedsinglerow{}{\msrucname{ugSecurelyUseSystem [1..*]}}
+\addnumberedsinglerow{}{\msrucname{ugMonitor [1..*]}}
+
+\addrowheading{Protocol condition(s)}
+\addnumberedsinglerow{}{ the iCrash system has been deployed}
+\addnumberedsinglerow{}{the coordinator actor involved in the use case has been declared by the actor actAdministrator}
+
+\addrowheading{Pre-condition(s)}
+\addnumberedsinglerow{}{none}
+
+\addrowheading{Main post-condition(s)}
+\addnumberedsinglerow{}{ modifications have been made by the coordinator on existing alerts or crisis OR the coordinator requested an updated status on existing alerts or crisis.}
+
+\addrowheading{Main Steps}
+\addalphanumberedsinglerow{}{the actor \msrcode{actHospital} executes the \msrucname{ugSecurelyUseSystem} use case}
+\addalphanumberedsinglerow{}{the actor \msrcode{actHospital} executes the \msrucname{ugMonitor} use case}
+\addrowheading{Steps Ordering Constraints}
+\addnumberedsinglerow{}{steps (a) (b) and (c) executions are interleaved 						//t7
+    (steps (b) and (c) have their protocol constrained by steps of (a)).}
+\addnumberedsinglerow{}{steps (a) (b) and (c) can be executed multiple times.}
+
+
+\end{usecase} 
+

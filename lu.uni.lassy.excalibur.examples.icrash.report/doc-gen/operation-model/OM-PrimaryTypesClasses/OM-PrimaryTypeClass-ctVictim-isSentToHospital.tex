@@ -1,0 +1,60 @@
+\subsection{Operation Model for isSentToHospital}
+
+\label{OM-isSentToHospital}
+
+
+The \msrcode{isSentToHospital} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{isSentToHospital}{used to provide a given hospital with current victim information.}
+
+	\addrowheading{Parameters}
+	\addnumbereddoublerow{}{AactHospital: actHospital}{the message destination actor} 
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+		
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{true if the message ieSendAVictimToHospital is sent by the simulator to the input interface of the given hospital actor with the current victim as parameter value.}
+
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-ctVictim-isSentToHospital-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{isSentToHospital}.},label=OM-ctVictim-isSentToHospital-MCL-LST]
+
+	
+	
+	/* Post Functional:*/ 
+	postF{if 
+	(
+	/* Post F01 */
+	  AactHospital.rnInterfaceIN.ieSendAVictim(self)
+	)
+	then (result = true)
+	else (result = false)
+	endif}
+	
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

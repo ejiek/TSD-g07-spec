@@ -40,10 +40,20 @@ The table below is providing comments on the graphical views given for the class
 \adddoubletwocolumnrow{operation}{\msrcode{isAllocatedIfPossible():ptBoolean}}{used to allocate a crisis to a coordinator if any or to alert the administrator of crisis waiting to be handled.}
 \adddoubletwocolumnrow{operation}{\msrcode{isSentToCoordinator(AactCoordinator:actCoordinator):ptBoolean}}{used to provide a given coordinator with current crisis information.}
 \adddoubletwocolumnrow{operation}{\msrcode{maxHandlingDelayPassed():ptBoolean}}{used to determine if the crisis stood too longly in a pending status since its creation.}
+\adddoublerow{ctHospital}{used to model system's representation about the actors that have the responsibility to monitor crisis and related victims with injuries.}
+\addsingletwocolumnrow{extends}{icrash.concepts.primarytypes.classes.ctAuthenticated}
+\adddoubletwocolumnrow{attribute}{\msrcode{id: dtHospitalID}}{a unique identification information.}
+\adddoubletwocolumnrow{operation}{\msrcode{init(Aid:dtHospitalID, Alogin:dtLogin, Apwd:dtPassword):ptBoolean}}{used to initialize the current object as a new instance of the ctHospital type.}
 \adddoublerow{ctHuman}{used to model system's representation about the indirect actors that has alerted of potential crisis.}
 \adddoubletwocolumnrow{attribute}{\msrcode{id: dtPhoneNumber}}{the number of the communication device used to send an alert to \msricrash system.}
 \adddoubletwocolumnrow{attribute}{\msrcode{kind: etHumanKind}}{role with respect to the alert notified.}
 \adddoubletwocolumnrow{operation}{\msrcode{init(Aid:dtPhoneNumber, Akind:etHumanKind):ptBoolean}}{\msrcode{init}: used to initialize the current object as a new instance of the ctHuman type.}
+\adddoublerow{ctInjury}{Used to model injury victim gets in a crisis}
+\adddoubletwocolumnrow{attribute}{\msrcode{id: dtInjuryID}}{the injury unique identification information.}
+\adddoubletwocolumnrow{attribute}{\msrcode{kind: etInjuryKind}}{the type of injury describes body part}
+\adddoubletwocolumnrow{operation}{\msrcode{init(Aid:dtInjuryID, AetInjuryKind:etInjuryKind):ptBoolean}}{used to initialize the current object as a new instance of the ctInjury type.}
+\adddoubletwocolumnrow{operation}{\msrcode{isSentToCoordinator(AactCoordinator:actCoordinator):ptBoolean}}{used to provide a given coordinator with current injury information.}
+\adddoubletwocolumnrow{operation}{\msrcode{isSentToHospital(AactHospital:actHospital):ptBoolean}}{used to provide a given hospital with current injury information.}
 \adddoublerow{ctState}{used to model the system. Each system specified using \msrmessir must include a ctState class for which there is only one instance at any state of the abstract machine after creation.}
 \adddoubletwocolumnrow{attribute}{\msrcode{clock: dtDateAndTime}}{used to represent the system local time.}
 \adddoubletwocolumnrow{attribute}{\msrcode{crisisReminderPeriod: dtSecond}}{used to define the delay between two reminders after which a reminder must be sent to the administrator and to the known coordinators to encourage them to handle the crisis.}
@@ -52,5 +62,10 @@ The table below is providing comments on the graphical views given for the class
 \adddoubletwocolumnrow{attribute}{\msrcode{nextValueForCrisisID: dtInteger}}{used to associate each crisis declared with a unique idenitification value. }
 \adddoubletwocolumnrow{attribute}{\msrcode{vpLastReminder: dtDateAndTime}}{date and time of the last reminder.}
 \adddoubletwocolumnrow{attribute}{\msrcode{vpStarted: ptBoolean}}{used to avoid reacting to an actor message if the system is not started (i.e. oeCreateSystemAndEnvironment not executed).}
-\adddoubletwocolumnrow{operation}{\msrcode{init(AnextValueForAlertID:dtInteger, AnextValueForCrisisID:dtInteger, Aclock:dtDateAndTime, AcrisisReminderPeriod:dtSecond, AmaxCrisisReminderPeriod:dtSecond, AvpLastReminder:dtDateAndTime, AvpStarted:ptBoolean):ptBoolean}}{used to initialize the current object as a new instance of the ctState type.}
+\adddoubletwocolumnrow{operation}{\msrcode{init(AnextValueForAlertID:dtInteger, AnextValueForCrisisID:dtInteger, AnextValueForVictimID:dtInteger, AnextValueForInjuryID:dtInteger, Aclock:dtDateAndTime, AcrisisReminderPeriod:dtSecond, AmaxCrisisReminderPeriod:dtSecond, AvpLastReminder:dtDateAndTime, AvpStarted:ptBoolean):ptBoolean}}{used to initialize the current object as a new instance of the ctState type.}
+\adddoublerow{ctVictim}{Used to model victim of a crisis}
+\adddoubletwocolumnrow{attribute}{\msrcode{id: dtVictimID}}{the victim unique identification information.}
+\adddoubletwocolumnrow{operation}{\msrcode{init(Aid:dtVictimID):ptBoolean}}{used to initialize the current object as a new instance of the ctVictim type.}
+\adddoubletwocolumnrow{operation}{\msrcode{isSentToCoordinator(AactCoordinator:actCoordinator):ptBoolean}}{used to provide a given coordinator with current victim information.}
+\adddoubletwocolumnrow{operation}{\msrcode{isSentToHospital(AactHospital:actHospital):ptBoolean}}{used to provide a given hospital with current victim information.}
 \end{datadictionary}

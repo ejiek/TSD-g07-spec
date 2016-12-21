@@ -4,7 +4,7 @@
 
 
 
-the actCoordinator's goal is to get the detailed list of existing crisis or alerts to decide on next actions to undertake. 
+the actCoordinator's goal is to get the detailed list of existing crisis, alerts, victims and injuries to decide on next actions to undertake. 
 
 
 \begin{usecase}
@@ -21,12 +21,14 @@ the actCoordinator's goal is to get the detailed list of existing crisis or aler
 
 \addrowheading{Goal(s) description}
 \addsinglerow{
-the actCoordinator's goal is to get the detailed list of existing crisis or alerts to decide on next actions to undertake. 
+the actCoordinator's goal is to get the detailed list of existing crisis, alerts, victims and injuries to decide on next actions to undertake. 
 }
 
 \addrowheading{Reuse}
 \addnumberedsinglerow{}{\msrucname{oeGetCrisisSet [0..*]}}
 \addnumberedsinglerow{}{\msrucname{oeGetAlertsSet [0..*]}}
+\addnumberedsinglerow{}{\msrucname{oeGetVictimSet [0..*]}}
+\addnumberedsinglerow{}{\msrucname{oeGetInjurySet [0..*]}}
 
 \addrowheading{Protocol condition(s)}
 \addnumberedsinglerow{}{
@@ -46,6 +48,8 @@ none
 \addrowheading{Main Steps}
 \addalphanumberedsinglerow{}{the actor \msrcode{actCoordinator} executes the \msrucname{oeGetAlertsSet} use case}
 \addalphanumberedsinglerow{}{the actor \msrcode{actCoordinator} executes the \msrucname{oeGetCrisisSet} use case}
+\addalphanumberedsinglerow{}{the actor \msrcode{actCoordinator} executes the \msrucname{oeGetVictimSet} use case}
+\addalphanumberedsinglerow{}{the actor \msrcode{actCoordinator} executes the \msrucname{oeGetInjurySet} use case}
 
 
 \end{usecase} 

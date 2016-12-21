@@ -1,0 +1,19 @@
+package icrash.usecases.ugHospitalMonitor {
+
+	import icrash.environment
+	import icrash.usecases.subfunctions
+
+	Use Case Model {
+    use case system usergoal ugHospitalMonitor() {
+      actor icrash.environment.actHospital[primary,active]
+      
+      reuse oeGetHospitalCrisisSet[0..*]
+      reuse oeGetHospitalVictimSet[0..*]
+      reuse oeGetHospitalInjurySet[0..*]
+      
+      step a: icrash.environment.actHospital executes oeGetHospitalVictimSet
+      step b: icrash.environment.actHospital executes oeGetHospitalInjurySet
+      step c: icrash.environment.actHospital executes oeGetHospitalCrisisSet
+    }
+	}
+}

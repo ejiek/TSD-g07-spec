@@ -1,0 +1,25 @@
+package icrash.operations.concepts.primarytypes.datatypes.etInjuryKind {
+	
+import lu.uni.lassy.messir.libraries.primitives
+
+Operation Model {
+			
+		operation: icrash.concepts.primarytypes.datatypes.etInjuryKind.is():ptBoolean{
+    postF{ 
+        let TheResult: ptBoolean in
+        ( if
+          ( self = arm
+            or self = leg
+            or self = chest
+            or self = head
+          )
+          then (TheResult = true)
+          else (TheResult = false)
+          endif
+          result = TheResult
+        )
+        }
+prolog{"src/Operations/Concepts/PrimaryTypesClasses/PrimaryTypesDatatypes-etInjuryKind-is.pl"}
+}
+}
+}

@@ -96,7 +96,7 @@ The \msrcode{oeAlert} operation has the following properties:
 	  and self.rnActor = TheactComCompany
 	/* PostF01 */
 	 TheSystem.nextValueForAlertID=PrenextValueForAlertID
-	 and PrenextValueForAlertID.add(1) = PostnextValueForAlertID
+	 and PrenextValueForAlertID.add(1) = PostnextValueForAlertID // Inga
 	 and TheSystem@post.nextValueForAlertID = PostnextValueForAlertID
 	
 	
@@ -115,7 +115,10 @@ The \msrcode{oeAlert} operation has the following properties:
 	                  AdtComment)
 	      
 	  /* PostF03 */
-	and TheSystem.rnctAlert.select(location.isNearTo(AdtGPSLocation)) = ColctAlertsNearBy
+	  
+	and TheSystem.rnctAlert -> select(location.isNearTo(AdtGPSLocation)) = ColctAlertsNearBy
+	//(TheSystem.rnCtCrisis -> select(c:ctCrisis | c.id.value = 1)).rnctAlerts
+	
 	and if  (ColctAlertsNearBy->size()=0)
 	    then (TheSystem.nextValueForCrisisID = PrenextValueForCrisisID
 	          and PrenextValueForCrisisID.add(1) = PostnextValueForCrisisID

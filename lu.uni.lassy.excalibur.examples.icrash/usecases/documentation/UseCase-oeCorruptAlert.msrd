@@ -1,0 +1,20 @@
+@@Use Case Subfunction icrash.usecases.subfunctions.oeCorruptAlert
+@description "used to corrupt a specific alert."
+@parameter icrash.usecases.subfunctions.oeCorruptAlert.ActAlert ""
+@endParameters
+@protocolCondition
+"
+"
+@endProtocolConditions
+@preCondition
+"
+"
+@endPreConditions
+@postCondition
+"
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

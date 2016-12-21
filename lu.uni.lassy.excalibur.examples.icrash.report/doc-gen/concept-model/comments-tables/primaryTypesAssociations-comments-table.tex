@@ -12,5 +12,8 @@ The table below is providing comments on the association types of the primary ty
 \adddoublerow{assctAuthenticatedactAuthenticated}{mainly used to determine if the login request of an authenticated actor can be granted based on the given credentials and the registered ones.}
 \adddoublerow{assctCoordinatoractCoordinator}{frequent messages must be sent to coordinator especially in relation to crisis they handle.}
 \adddoublerow{assctCrisisctCoordinator}{at any point in time we need to know if a coordinator is handling existing crisis or not.}
+\adddoublerow{assctHospitalactHospital}{frequent messages we don't know anything about.}
 \adddoublerow{assctHumanactComCompany}{ in order to communicate with humans who informed about potential crisis, we need to record the communication company to use to send them messages.}
+\adddoublerow{assctInjuryVictim}{at any point in time we need to know the crisis victim belongs to.}
+\adddoublerow{assctVictimCrisis}{at any point in time we need to know which victim has this injury.}
 \end{associationtypes}

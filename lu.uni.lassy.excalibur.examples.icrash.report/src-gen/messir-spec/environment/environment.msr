@@ -36,13 +36,45 @@ import lu.uni.lassy.messir.libraries.calendar
 											
 				operation oeDeleteCoordinator(
 											AdtCoordinatorID:dtCoordinatorID ):ptBoolean
+											
+				operation oeAddHospital(
+											AdtCoordinatorID:dtHospitalID ,
+											AdtLogin:dtLogin , 
+											AdtPassword:dtPassword ):ptBoolean
+											
+				operation oeDeleteHospital(
+											AdtHospitalID:dtHospitalID ):ptBoolean
 			}
 			
 			input interface inactAdministrator{
 				
+				
 				operation ieCoordinatorAdded():ptBoolean
 				operation ieCoordinatorDeleted():ptBoolean
+				operation ieHospitalAdded():ptBoolean
+				operation ieHospitalDeleted():ptBoolean
+				
 	 		}
+		}
+		
+				
+		actor actHospital
+			role rnactHospital 
+			cardinality [0..*] 
+			extends actAuthenticated{
+		
+			operation init():ptBoolean
+			
+			input interface inactHospital {
+				operation ieSendACrisisToHospital(ActCrisis:ctCrisis ):ptBoolean
+				operation ieSendAVictimToHospital(ActVictim:ctVictim ):ptBoolean
+				operation ieSendAInjuryToHospital(ActInjury:ctInjury ):ptBoolean
+			}
+			output interface outactHospital {
+				operation oeGetHospitalCrisisSet(AetCrisisStatus:etCrisisStatus):ptBoolean
+				operation oeGetHospitalVictimSet(AdtCrisisID:dtCrisisID):ptBoolean
+				operation oeGetHospitalInjurySet(AdtVictimID:dtVictimID):ptBoolean
+			}
 		}
 		
 		actor actCoordinator 
@@ -53,11 +85,21 @@ import lu.uni.lassy.messir.libraries.calendar
 			operation init():ptBoolean
 
 			output interface outactCoordinator{
-				operation oeInvalidateAlert(AdtAlertID:dtAlertID ):ptBoolean
-				operation oeCloseCrisis(AdtCrisisID:dtCrisisID ):ptBoolean
-				operation oeGetAlertsSet(AetAlertStatus:etAlertStatus ):ptBoolean
-				operation oeGetCrisisSet(AetCrisisStatus:etCrisisStatus ):ptBoolean
-				operation oeSetCrisisHandler(AdtCrisisID:dtCrisisID ):ptBoolean
+				operation oeAddVictim(AdtCrisisID:dtCrisisID):ptBoolean
+				operation oeDeleteVictim(AdtVictimID:dtVictimID):ptBoolean
+				operation oeAddInjury(
+								      AdtVictimID:dtVictimID,
+					 				  AetInjuryKind:etInjuryKind
+					 				  ):ptBoolean
+				operation oeDeleteInjury(AdtInjuryID:dtInjuryID):ptBoolean
+				
+				operation oeInvalidateAlert(AdtAlertID:dtAlertID):ptBoolean
+				operation oeCloseCrisis(AdtCrisisID:dtCrisisID):ptBoolean
+				operation oeGetAlertsSet(AetAlertStatus:etAlertStatus):ptBoolean
+				operation oeGetCrisisSet(AetCrisisStatus:etCrisisStatus):ptBoolean
+				operation oeGetVictimSet(AdtCrisisID:dtCrisisID):ptBoolean
+				operation oeGetInjurySet(AdtVictimID:dtVictimID):ptBoolean
+				operation oeSetCrisisHandler(AdtCrisisID:dtCrisisID):ptBoolean
 				operation oeReportOnCrisis(
 											AdtCrisisID:dtCrisisID ,
 											AdtComment:dtComment 
@@ -76,6 +118,14 @@ import lu.uni.lassy.messir.libraries.calendar
 			input interface inactCoordinator{
 				operation ieSendAnAlert(ActAlert:ctAlert ):ptBoolean
 				operation ieSendACrisis(ActCrisis:ctCrisis ):ptBoolean
+				operation ieSendAVictim(ActVictim:ctVictim ):ptBoolean
+				operation ieSendAInjury(ActInjury:ctInjury ):ptBoolean
+				
+				
+				operation ieVictimAdded():ptBoolean
+				operation ieVictimDeleted():ptBoolean
+				operation ieInjuryAdded():ptBoolean
+				operation ieInjuryDeleted():ptBoolean
 	 		}
 		}
 		

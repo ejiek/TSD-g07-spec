@@ -1,0 +1,99 @@
+\subsection{Operation Model for oeDeleteHospital}
+
+\label{OM-oeDeleteHospital}
+
+
+The \msrcode{oeDeleteHospital} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{oeDeleteHospital}{sent to delete an existing hospital in the system's post state and environment's post state.}
+
+	\addrowheading{Parameters}
+	\addnumbereddoublerow{}{AdtHospitalID: dtHospitalID}{used for ctHospital instance retrieval} 
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+	\addrowheading{Pre-Condition (protocol)}
+	\addnumberedsinglerow{PreP}{the system is started}
+		
+	\addrowheading{Pre-Condition (functional)}
+	\addnumberedsinglerow{PreF}{the actor logged previously and did not log out ! (i.e. the associated ctAdministrator instance is considered logged)}
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{ the ctHospital class instance having the required id do not belong anymore to the post state as well as is related actHospital actor instance.}
+	\addnumberedsinglerow{PostF}{the administrator actor is informed about the satisfaction of its request.}
+
+	\addrowheading{Post-Condition (protocol)}
+	\addnumberedsinglerow{PostP}{ none }
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actAdministrator-oeDeleteHospital-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeDeleteHospital}.},label=OM-actAdministrator-oeDeleteHospital-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  let TheActor:actAdministrator in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheActor
+	  
+	/* PreP01 */
+	  and TheSystem.vpStarted = true
+	/* PreP02 */
+	  and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	/* Pre Functional:*/
+	preF{let TheSystem: ctState in
+	  let TheActor:actAdministrator in
+	   
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheActor
+	/* PreF01 */
+	  TheSystem.rnctHospital->select(id.eq(AdtHospitalID))
+	  = ColctHospitals
+	  and ColctHospitals->size().eq(1)}
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+	  let TheActor:actAdministrator in
+	  let ThectHospital:ctHospital in
+	  self.rnActor.rnSystem = TheSystem
+	  and self.rnActor = TheActor
+	/* PostF01 */
+	  TheSystem.rnctHospital->select(id.eq(AdtHospitalID))
+	  = ThectHospital
+	  and ThectHospital.rnactHospital->forAll(msrIsKilled)
+	  and ThectHospital.msrIsKilled
+	 
+	  /* PostF02 */
+	  and TheActor.rnInterfaceIN^ieHospitalDeleted()
+	
+	 /* Post Protocol:*/
+	/* PostP01 */
+	 and true}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

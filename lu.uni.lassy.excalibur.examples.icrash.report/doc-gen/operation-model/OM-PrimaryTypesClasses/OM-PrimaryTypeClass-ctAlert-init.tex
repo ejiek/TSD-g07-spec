@@ -42,7 +42,10 @@ The \msrcode{init} operation has the following properties:
 	
 	
 	/* Post Functional:*/ 
-	postF{if
+	postF{let  AetCorruptionKind:etCorruptionKind in
+	AetCorruptionKind = regular
+		
+	if
 	(
 	/* Post F01 */
 	let Self:ctAlert in
@@ -51,6 +54,7 @@ The \msrcode{init} operation has the following properties:
 	and Self.location = Alocation
 	and Self.instant = Ainstant
 	and Self.comment = Acomment
+	and Self.corruption = AetCorruptionKind
 	/* Post F02 */
 	and (Self.oclIsNew and self = Self)
 	)
