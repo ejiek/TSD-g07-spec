@@ -36,12 +36,13 @@ postF{
   self.rnActor.rnSystem = TheSystem
   and self.rnActor = TheActor
   
-  TheSystem.rnctAlert->select(id.eq(AdtAlertID))
+  and TheSystem.rnctAlert->select(id.eq(AdtAlertID))
   = ColctAlert
-  if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored )
+  
+  /* PostF01 */
+  and if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored )
   then(
-	/* PostF01 */
-	and TheActor.rnInterfaceIN^ieMessage('The Alert is now declared as valid !')
+	TheActor.rnInterfaceIN^ieMessage('The Alert is now declared as valid !')
 	true
   )
   else(
@@ -57,7 +58,9 @@ postP{
 
   TheSystem.rnctAlert->select(id.eq(AdtAlertID))
   = ColctAlert
-  if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored )
+  
+  /* PostP01 */
+  and if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored )
   then(
 	ColctAlert->forAll(T:ctAlert | T.status@post=valid)
   )
