@@ -14,7 +14,9 @@ package icrash.usecases.suDeployAndRun {
 			actor actHospital[secondary,active,multiple]
 			actor actActivator[secondary,proactive]
 			actor actComCompany[secondary,active]
-
+			actor actCorrupter[secondary,active]
+	
+			
 			reuse oeCreateSystemAndEnvironment[1..1]
 			reuse ugAdministrateTheSystem[1..*]
 			reuse suGlobalCrisisHandling[1..*]
@@ -22,6 +24,7 @@ package icrash.usecases.suDeployAndRun {
 			reuse oeSetClock[1..*]
 			reuse oeSollicitateCrisisHandling[0..*]
 			reuse oeAlert[1..*]
+			reuse oeCorruptAlert[0..*]
  
 			step a: actMsrCreator executes oeCreateSystemAndEnvironment
 			step b: actAdministrator executes ugAdministrateTheSystem
@@ -30,6 +33,7 @@ package icrash.usecases.suDeployAndRun {
 			step ^e: actActivator executes oeSollicitateCrisisHandling
 			step f: actCoordinator executes suGlobalCrisisHandling
 			step g: actHospital executes suHospitalCrisisInteraction
+			step h: actCorrupter executes oeCorruptAlert
 			
       ordering constraint 
         "step (a) must be always the first step."
@@ -39,6 +43,8 @@ package icrash.usecases.suDeployAndRun {
         "step (g) can be executed by different actHospital actors."
       ordering constraint 
         "if (e) then previously (d)."
+      ordering constraint 
+        "if (h) then previously (c)."
 		}
 //----------------------------------------------------
 //----------------------------------------------------
@@ -51,6 +57,7 @@ package icrash.usecases.suDeployAndRun {
         tango : actComCompany
         steve : actCoordinator
         wozniak : actHospital
+        linus : actCorrupter
       }
       use case steps {
 //----------------------------------------------------
@@ -211,7 +218,28 @@ package icrash.usecases.suDeployAndRun {
                 ieMessage('The crisis is now closed !')
                 returned to steve
               }
+//----------------------------------------------------
+        tango
+        executed instanceof subfunction 
+              oeAlert("witness","2018:11:26","10:10:16","+3524666445252",
+                      "49.627675:6.159590","3 cars involved in an accident."){
+                 ieSmsSend("+3524666445252","Your alert has been registered. We will handle it and keep you informed") returned to tango
+              }
+//----------------------------------------------------               
+        linus
+        executed instanceof subfunction 
+              oeCorruptAlert("witness","2019:11:26","10:10:16","+3524666445252",
+                      "49.627675:6.159590","3 cars involved in an accident."){
+              }
+//----------------------------------------------------
+        steve
+        executed instanceof subfunction
+              oeValidateAlert("2"){
+                ieMessage('The Alert is corrupted!')
+                returned to steve
+              }       
       }
+      
     }
 //---------------------------------------------------- 
 //---------------------------------------------------- 

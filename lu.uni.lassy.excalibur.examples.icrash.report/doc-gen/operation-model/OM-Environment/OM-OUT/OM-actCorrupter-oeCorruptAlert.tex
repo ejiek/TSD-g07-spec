@@ -1,0 +1,81 @@
+\subsection{Operation Model for oeCorruptAlert}
+
+\label{OM-oeCorruptAlert}
+
+
+The \msrcode{oeCorruptAlert} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{oeCorruptAlert[proactive]}{used to corrupt alert data and set its corruption status to corrupted}
+
+	\addrowheading{Parameters}
+	\addnumbereddoublerow{}{ActAlert: ctAlert}{actAlert corrupted by corrupter} 
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+	\addrowheading{Pre-Condition (protocol)}
+	\addnumberedsinglerow{PreP}{the system is started}
+	\addnumberedsinglerow{PreP}{the actor logged previously and did not log out ! (i.e. the associated ctCoordinator instance is considered logged)}
+		
+	\addrowheading{Pre-Condition (functional)}
+	\addnumberedsinglerow{PreF}{ none }
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{in systems post state ctAlert with given dtAlertID is now corrupted and its state is set to etCorruptionKind.corrupted}
+
+	\addrowheading{Post-Condition (protocol)}
+	\addnumberedsinglerow{PostP}{ none }
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCorrupter-oeCorruptAlert-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeCorruptAlert}.},label=OM-actCorrupter-oeCorruptAlert-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  				self.rnActor.rnSystem = TheSystem
+	  			  
+					/* PreP01 */
+					and TheSystem.vpStarted = true
+					/* PreP02 */
+					TheSystem.rnctAlert->select(id.eq(AdtAlertID))
+					 = ColctAlert
+					 and ColctAlert->size().eq(1)}
+	
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+	  				let CorruptedAlert: ctAlert in
+	  				self.rnActor.rnSystem = TheSystem
+	  				
+					  /* PostF02 */
+	  				  and CorruptedAlert.id=ActAlert.id
+	  				  and CorruptedAlert.status=ActAlert.status
+	  				  and CorruptedAlert.location=ActAlert.location
+	  				  and CorruptedAlert.instant=ActAlert.instant
+	  				  and CorruptedAlert.comment=ActAlert.comment
+	  				  and CorruptedAlert.corruption=ActAlert.etCorruptionKind.corrupted
+	  				  and TheSystem.rnctAlert@post->select(id.eq(ActAlert.id)) = CorruptedAlert}
+	
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

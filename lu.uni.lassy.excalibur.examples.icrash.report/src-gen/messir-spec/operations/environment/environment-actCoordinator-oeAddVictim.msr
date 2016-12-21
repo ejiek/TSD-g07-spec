@@ -26,6 +26,7 @@ preP{
 postF{
   let TheSystem: ctState in
   let TheActor:actCoordinator in
+  let AdtVictimID:dtVictimID in
   
   self.rnActor.rnSystem = TheSystem
   and self.rnActor = TheActor
@@ -40,8 +41,8 @@ and TheSystem.nextValueForVictimID.todtString().eq(AdtVictimID)
 
 and ActVictim.init(AdtVictimID)
 				   
-TheSystem.rnCtCrisis -> select(ctCrisis.id = dtCrisisID) = TEMP
-TEMP.rnTheVictim->msrAny(true) = ActVictim //Inga
+and 
+TheSystem.rnCtCrisis@post.includes(ActVictim)
 
 /* PostF03 */
 and TheActor.rnInterfaceIN^ieVictimAdded()

@@ -973,6 +973,8 @@
   <semanticResources>concepts/documentation/PrimaryType-Enumeration-etCorruptionKind.msrd</semanticResources>
   <semanticResources>concepts/documentation/Operation-etCorruptionKind-is.msrd</semanticResources>
   <semanticResources>operations/environment/enviroment-actCorrupter-oeCorruptAlert.msr</semanticResources>
+  <semanticResources>environment/documentation/Actor-actCorrupter.msrd</semanticResources>
+  <semanticResources>environment/documentation/Operation-actCorrupter-init.msrd</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_Aguk8EY3EeOwoLagakxXNQ">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/lu.uni.lassy.excalibur.ui.viewer/description/excalibur_models.odesign#//@ownedViewpoints[name='msr-viewpoint']"/>
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_frDQIFBBEeOoKst3jxjvgA" name="cm-pt-ct-gv-01">

@@ -210,6 +210,12 @@ use case system subfunction oeGetCrisisSet(AetCrisisStatus:etCrisisStatus) {
       ieMessage(AMessage) returned to actCoordinator
     }
   }
+//----------------------------------------------------
+  use case system subfunction oeCorruptAlert(ActAlert:ctAlert) {
+    actor actCorrupter[primary,active]
+    returned messages {
+    }
+  }
   }
 
 }

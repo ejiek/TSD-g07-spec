@@ -68,7 +68,7 @@ The \msrcode{oeDeleteVictim} operation has the following properties:
 	  and self.rnActor = TheActor
 	  
 	/* PostF01 */
-	  TheSystem.rnctVictim->select(id.eq(AdtVictimID))
+	  TheSystem.rnctVictim@post->select(id.eq(AdtVictimID))
 	  = ColctVictims
 	  and ColctVictims->size().eq(0)
 	/* PostF02 */

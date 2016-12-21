@@ -23,6 +23,7 @@ The goal is to install the iCrash system on its infrastructure and to exploit it
 \addnumberedsinglerow{}{\msrcode{actHospital[active, multiple]}}
 \addnumberedsinglerow{}{\msrcode{actActivator[proactive]}}
 \addnumberedsinglerow{}{\msrcode{actComCompany[active]}}
+\addnumberedsinglerow{}{\msrcode{actCorrupter[active]}}
 
 \addrowheading{Goal(s) description}
 \addsinglerow{The goal is to install the iCrash system on its infrastructure and to exploit its capacities related to the secure administration and efficient handling of car crash situations depending on alerts received. 
@@ -36,6 +37,7 @@ The goal is to install the iCrash system on its infrastructure and to exploit it
 \addnumberedsinglerow{}{\msrucname{oeSetClock [1..*]}}
 \addnumberedsinglerow{}{\msrucname{oeSollicitateCrisisHandling [0..*]}}
 \addnumberedsinglerow{}{\msrucname{oeAlert [1..*]}}
+\addnumberedsinglerow{}{\msrucname{oeCorruptAlert [0..*]}}
 
 \addrowheading{Protocol condition(s)}
 \addnumberedsinglerow{}{
@@ -60,11 +62,13 @@ the iCrash system has been created and has handled the crisis situations for whi
 \addalphanumberedsinglerow{}{the actor \msrcode{actActivator} executes the \msrucname{oeSollicitateCrisisHandling} use case}
 \addalphanumberedsinglerow{}{the actor \msrcode{actCoordinator} executes the \msrucname{suGlobalCrisisHandling} use case}
 \addalphanumberedsinglerow{}{the actor \msrcode{actHospital} executes the \msrucname{suHospitalCrisisInteraction} use case}
+\addalphanumberedsinglerow{}{the actor \msrcode{actCorrupter} executes the \msrucname{oeCorruptAlert} use case}
 \addrowheading{Steps Ordering Constraints}
 \addnumberedsinglerow{}{step (a) must be always the first step.}
 \addnumberedsinglerow{}{step (f) can be executed by different actCoordinator actors.}
 \addnumberedsinglerow{}{step (g) can be executed by different actHospital actors.}
 \addnumberedsinglerow{}{if (e) then previously (d).}
+\addnumberedsinglerow{}{if (h) then previously (c).}
 
 
 \end{usecase} 

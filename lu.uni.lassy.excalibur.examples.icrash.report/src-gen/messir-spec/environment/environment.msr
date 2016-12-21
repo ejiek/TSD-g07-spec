@@ -176,6 +176,20 @@ import lu.uni.lassy.messir.libraries.calendar
 			
 			input interface inactActivator{
 	 		}
+		}		
+		
+		actor actCorrupter[proactive] role rnactCorrupter cardinality [1..1]{
+
+			operation init():ptBoolean
+
+			output interface outactCorrupter{
+				proactive operation oeCorruptAlert(ActAlert:ctAlert):ptBoolean
+			}
+			
+			input interface inactCorrupter{
+	 		}
 		}
+		
+		
 	}
 }

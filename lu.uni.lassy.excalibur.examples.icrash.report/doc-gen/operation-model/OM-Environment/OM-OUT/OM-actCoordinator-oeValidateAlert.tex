@@ -51,11 +51,7 @@ The \msrcode{oeValidateAlert} operation has the following properties:
 	/* PreP01 */
 	  and TheSystem.vpStarted = true
 	/* PreP02 */
-	  and TheActor.rnctAuthenticated.vpIsLogged = true
-	/* PreP03 */
-	  TheSystem.rnctAlert->select(id.eq(AdtAlertID))
-	  = ColctAlert
-	  and ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored )}
+	  and TheActor.rnctAuthenticated.vpIsLogged = true}
 	
 	/* Pre Functional:*/
 	preF{/* PreF01 */
@@ -70,15 +66,35 @@ The \msrcode{oeValidateAlert} operation has the following properties:
 	  self.rnActor.rnSystem = TheSystem
 	  and self.rnActor = TheActor
 	  
-	/* PostF01 */
-	TheSystem.rnCtAlert -> select(ctAlert.id = dtAlertID) = colAlerts
-	and colAlerts->forAll(T:ctAlert | T.status=valid)
-	
-	/* PostF02 */
-	and TheActor.rnInterfaceIN^ieMessage('The Alert is now declared as valid !')}
+	  and TheSystem.rnctAlert->select(id.eq(AdtAlertID))
+	  = ColctAlert
+	  
+	  /* PostF01 */
+	  and if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored ))
+	  then(
+		TheActor.rnInterfaceIN^ieMessage('The Alert is now declared as valid !')
+		true
+	  )
+	  else(
+		TheActor.rnInterfaceIN^ieMessage('Can\'t validate corrupted alert !')
+	  )
+	  endif}
 	
 	/* Post Protocol:*/ 
-	postP{ true}
+	postP{ let TheSystem: ctState in
+	  
+	  self.rnActor.rnSystem = TheSystem
+	
+	  TheSystem.rnctAlert->select(id.eq(AdtAlertID))
+	  = ColctAlert
+	  
+	  /* PostP01 */
+	  and if (ColctAlert->forAll(T:ctAlert | T.corruption=regular or T.corruption=restored ))
+	  then(
+		ColctAlert->forAll(T:ctAlert | T.status@post=valid)
+	  )
+	  else true
+	  endif}
 	
 	\end{lstlisting}
 	\normalsize 

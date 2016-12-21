@@ -13,20 +13,26 @@ import icrash.environment
   				self.rnActor.rnSystem = TheSystem
   			  
 				/* PreP01 */
-				and TheSystem.vpStarted = true // ?
+				and TheSystem.vpStarted = true
 				/* PreP02 */
 				TheSystem.rnctAlert->select(id.eq(AdtAlertID))
 				 = ColctAlert
 				 and ColctAlert->size().eq(1)
   			}
   			
-  			postP{
+  			postF{
   				let TheSystem: ctState in
+  				let CorruptedAlert: ctAlert in
   				self.rnActor.rnSystem = TheSystem
   				
-  				  TheSystem.rnctAlert@post->select(id.eq(ActAlert.id)) = ActAlert
-  				  change the corrupted attribute
-  				  
+				  /* PostF02 */
+  				  and CorruptedAlert.id=ActAlert.id
+  				  and CorruptedAlert.status=ActAlert.status
+  				  and CorruptedAlert.location=ActAlert.location
+  				  and CorruptedAlert.instant=ActAlert.instant
+  				  and CorruptedAlert.comment=ActAlert.comment
+  				  and CorruptedAlert.corruption=ActAlert.etCorruptionKind.corrupted
+  				  and TheSystem.rnctAlert@post->select(id.eq(ActAlert.id)) = CorruptedAlert
   			}
   
 		}

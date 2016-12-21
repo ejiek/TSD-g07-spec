@@ -23,7 +23,7 @@ The \msrcode{oeGetHospitalCrisisSet} operation has the following properties:
 	\addnumberedsinglerow{PreF}{ none }
 
 	\addrowheading{Post-Condition (functional)}
-	\addnumberedsinglerow{PostF}{ the post state is the one obtained by satisfying the \msrcode{isSentToHospital} predicate for each crisis having the provided status and for the actor sending the message \msrcode{ieSendACrisisToHospital}. (cf. specification of \msrcode{isSentToHospital} predicate given for the \msrcode{ctCrisis} type.}
+	\addnumberedsinglerow{PostF}{for each crisis having the provided status, a message \msrcode{ieSendACrisisToHospital} has been sent with the crisis instance to the calling actor instance.}
 
 	\addrowheading{Post-Condition (protocol)}
 	\addnumberedsinglerow{PostP}{ none}
@@ -57,11 +57,11 @@ The \msrcode{oeGetHospitalCrisisSet} operation has the following properties:
 	/* Post Functional:*/ 
 	postF{let TheSystem: ctState in
 	  let TheActor:actHospital in
-	  let TheClass:ctHospital in
+	  let ThectHospital:ctHospital in
 	  
 	  self.rnActor.rnSystem = TheSystem
 	  and self.rnActor = TheActor
-	  and TheActor.rnctHospital = TheClass
+	  and TheActor.rnctHospital = ThectHospital
 	  
 	/* PostF01 */
 		TheSystem.rnCtCrisis -> select(ctCrisis.status = AetCrisisStatus) = colCrisis

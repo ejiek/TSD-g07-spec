@@ -23,7 +23,7 @@ the actHospital's goal is to monitor the crisis in order to act as necessary to 
 
 \addrowheading{Reuse}
 \addnumberedsinglerow{}{\msrucname{ugSecurelyUseSystem [1..*]}}
-\addnumberedsinglerow{}{\msrucname{ugMonitor [1..*]}}
+\addnumberedsinglerow{}{\msrucname{ugHospitalMonitor [1..*]}}
 
 \addrowheading{Protocol condition(s)}
 \addnumberedsinglerow{}{ the iCrash system has been deployed}
@@ -37,11 +37,11 @@ the actHospital's goal is to monitor the crisis in order to act as necessary to 
 
 \addrowheading{Main Steps}
 \addalphanumberedsinglerow{}{the actor \msrcode{actHospital} executes the \msrucname{ugSecurelyUseSystem} use case}
-\addalphanumberedsinglerow{}{the actor \msrcode{actHospital} executes the \msrucname{ugMonitor} use case}
+\addalphanumberedsinglerow{}{the actor \msrcode{actHospital} executes the \msrucname{ugHospitalMonitor} use case}
 \addrowheading{Steps Ordering Constraints}
-\addnumberedsinglerow{}{steps (a) (b) and (c) executions are interleaved 						//t7
-    (steps (b) and (c) have their protocol constrained by steps of (a)).}
-\addnumberedsinglerow{}{steps (a) (b) and (c) can be executed multiple times.}
+\addnumberedsinglerow{}{steps (a) and (b) executions are interleaved 
+    (step (b) have their protocol constrained by steps of (a)).}
+\addnumberedsinglerow{}{steps (a) and (b) can be executed multiple times.}
 
 
 \end{usecase} 

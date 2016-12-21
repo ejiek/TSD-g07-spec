@@ -6,7 +6,7 @@ import icrash.environment
 import icrash.usecases.subfunctions
 import icrash.usecases.ugSecurelyUseSystem
 import icrash.usecases.ugCrisisInteraction
-import icrash.usecases.ugMonitor
+import icrash.usecases.ugHospitalMonitor
 
 Use Case Model {
 	use case system summary 
@@ -14,21 +14,18 @@ Use Case Model {
 		actor actHospital[primary,active]
 		
 		reuse ugSecurelyUseSystem[1..*]
-		reuse ugMonitor[1..*] 
-		//reuse ugCrisisInteraction[1..*] //t7
+		reuse ugHospitalMonitor[1..*]
 
 		step a: actHospital 
 		        executes ugSecurelyUseSystem
 		step b: actHospital
-		        executes ugMonitor
-		//step c: actHospital
-		//        executes ugCrisisInteraction //t7
+		        executes ugHospitalMonitor
 
   ordering constraint 
-    "steps (a) (b) and (c) executions are interleaved 						//t7
-    (steps (b) and (c) have their protocol constrained by steps of (a))."		
+    "steps (a) and (b) executions are interleaved 
+    (step (b) have their protocol constrained by steps of (a))."		
   ordering constraint 
-      "steps (a) (b) and (c) can be executed multiple times." ////t7
+      "steps (a) and (b) can be executed multiple times."
 }
 	}
 

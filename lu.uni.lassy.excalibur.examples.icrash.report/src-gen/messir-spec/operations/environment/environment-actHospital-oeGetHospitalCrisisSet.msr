@@ -25,11 +25,11 @@ preP{
 postF{
   let TheSystem: ctState in
   let TheActor:actHospital in
-  let TheClass:ctHospital in
+  let ThectHospital:ctHospital in
   
   self.rnActor.rnSystem = TheSystem
   and self.rnActor = TheActor
-  and TheActor.rnctHospital = TheClass
+  and TheActor.rnctHospital = ThectHospital
   
 /* PostF01 */
 	TheSystem.rnCtCrisis -> select(ctCrisis.status = AetCrisisStatus) = colCrisis
